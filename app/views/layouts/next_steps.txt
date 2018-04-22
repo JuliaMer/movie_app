@@ -1,0 +1,9 @@
+PRompt
+
+
+
+rails generate controller Movies new
+rails generate controller Actors new
+
+rails generate model Movie title:string
+rails generate model Actor name:string
