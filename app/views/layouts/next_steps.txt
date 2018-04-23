@@ -1,0 +1,154 @@
+PRompt
+
+rails generate controller Movies new
+rails generate controller Actors new
+
+rails generate model Movie title:string
+rails generate model Actor name:string
+
+Validations
+
+app/models/movie
+
+validates :title, presence: true, uniqueness: {case_sensitive: false }
+
+app/models/actor
+
+validates :name, presence: true, uniqueness: {case_sensitive: false }
+
+
+Create new file
+app/views/movies/show.html.erb
+<%= @movie.title %>
+
+app/views/actors/show.html.erb
+<%= @actor.name %>
+
+
+
+now in MoviesController
+  def show
+    @movie = Movie.find(params[:id])
+    debugger #remove later
+  end
+
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+      @movie = Movie.new(movie_params)    # Not the final implementation!
+      if @movie.save
+      flash[:success] = "You added a new movie to the database!"
+        redirect_to @movie
+      else
+        render 'new'
+      end
+    end
+
+ private
+
+      def movie_params
+        params.require(:movie).permit(:title)
+      end
+
+now in ActorsController
+
+  def show
+    @actor = Actor.find(params[:id])
+    debugger #remove later
+  end
+
+  def new
+    @actor = Actor.new
+  end
+
+   def create
+    @actor = Actor.new(actor_params)    # Not the final implementation!
+    if @actor.save
+    flash[:success] = "You added a new actor to the database!"
+      redirect_to @actor
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+      def actor_params
+        params.require(:actor).permit(:name)
+      end
+
+
+now in app/views/movies/new.html
+
+<% provide(:title, 'Create movie') %>
+<h1>Create movie</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@movie) do |f| %>
+    <%= render 'shared/movie_error_messages' %>
+
+      <%= f.label :title %>
+       <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.submit "Create movie", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+now in app/views/actors/new.html
+
+<% provide(:title, 'Create actor') %>
+<h1>Create actor</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@actor) do |f| %>
+    <%= render 'shared/actor_error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.submit "Create actor", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+Create shared folder for error messages
+
+mkdir app/views/shared
+touch _movie_error_messages.html.erb
+
+<% if @movie.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@movie.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+touch _actor_error_messages.html.erb
+
+<% if @actor.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@actor.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @actor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+now reset all
+rails db:migrate:reset
