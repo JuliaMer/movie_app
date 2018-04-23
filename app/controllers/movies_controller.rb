@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    debugger #remove later
+    #debugger #remove later
   end
 
   def new
@@ -18,6 +18,11 @@ class MoviesController < ApplicationController
       render 'new'
     end
   end
+
+  def index
+    @movies = Movie.all
+  end
+
 
   private
 

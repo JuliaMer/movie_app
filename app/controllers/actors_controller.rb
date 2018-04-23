@@ -19,9 +19,14 @@ class ActorsController < ApplicationController
     end
   end
 
+  def index
+    @actors = Actor.all
+  end
+
   private
 
   def actor_params
     params.require(:actor).permit(:name)
   end
+
 end

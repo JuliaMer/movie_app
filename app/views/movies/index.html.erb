@@ -1,0 +1,8 @@
+<% provide(:title, 'Movies list') %>
+<h1>Movies</h1>
+  <% @movies.each do |a| %>
+  <%= puts a.title %>
+  <% end %>
+
+
+<h2><%= link_to "Add movie", 'movies/new' %></li></h2>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'actors/new'
-  get 'movies/new'
   resources :movies
   resources :actors
+
+  get 'actors/new'
+  get 'movies/new'
+
 
   get '/home', to: 'static_pages#home'
   get '/movies', to: 'static_pages#movies'
