@@ -4,7 +4,7 @@
 <ul>
   <% @actors.each do |actor| %>
     <li>
-      <%= link_to actor.name, edit_actor_path(actor.id) %>
+      <%= link_to actor.name, actor_path(actor.id) %>
     </li>
   <% end %>
 </ul>

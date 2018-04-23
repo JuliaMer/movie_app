@@ -20,13 +20,13 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find_by(params[:id])
+    @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to action: "index"
   end
 
   def edit
-    @movie = Movie.find_by(params[:id])
+    @movie = Movie.find(params[:id])
   end
 
   def update

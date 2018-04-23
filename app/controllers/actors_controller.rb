@@ -20,24 +20,24 @@ class ActorsController < ApplicationController
   end
 
   def destroy
-    @actor = Actor.find_by(params[:id])
+    @actor = Actor.find(params[:id])
     @actor.destroy
     redirect_to action: "index"
   end
 
   def edit
-    @actor = Actor.find_by(params[:id])
+    @actor = Actor.find(params[:id])
   end
 
   def update
     @actor = Actor.find(params[:id])
+    debugger
     if @actor.update(actor_params)
       redirect_to action: 'index'
     else
       render 'edit'
     end
   end
-
 
   def index
     @actors = Actor.all
