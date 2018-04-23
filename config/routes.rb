@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'actors/new'
+  get 'movies/new'
   resources :movies
   resources :actors
 
