@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
-  has_and_belongs_to_many :actors
+  has_many :actor_movies
+  has_many :actors, :through => :actor_movies
   validates :title, presence: true, uniqueness: {case_sensitive: false }
 end
