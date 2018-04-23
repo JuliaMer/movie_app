@@ -1,8 +1,13 @@
-<% provide(:title, 'Actors list') %>
+<% provide(:title, 'Actor list') %>
 <h1>Actors</h1>
-  <% @actors.each do |a| %>
-  <%= puts a.name %>
+<p>See a list of all actors in the database:</p>
+<ul>
+  <% @actors.each do |actor| %>
+    <li>
+      <%= link_to actor.name, edit_actor_path(actor.id) %>
+    </li>
   <% end %>
+</ul>
 
 
-<h2><%= link_to "Add actor", 'actors/new' %></li></h2>
+<h2><%= link_to "Add actor", 'actors/new' %></h2>

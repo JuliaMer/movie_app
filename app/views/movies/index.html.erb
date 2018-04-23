@@ -1,8 +1,13 @@
-<% provide(:title, 'Movies list') %>
+<% provide(:title, 'Movie list') %>
 <h1>Movies</h1>
-  <% @movies.each do |a| %>
-  <%= puts a.title %>
+<p>See a list of all movies in the database:</p>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <%= link_to movie.title, edit_movie_path(movie.id) %>
+    </li>
   <% end %>
+</ul>
 
-
-<h2><%= link_to "Add movie", 'movies/new' %></li></h2>
+<h2><%= link_to "Add movie", new_movie_path %></h2>
