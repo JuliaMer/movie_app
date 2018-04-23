@@ -25,6 +25,11 @@
     <%= form.submit %>
   </p>
 
+
+  <%= link_to 'Destroy', actor_path(@actor),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+
 <% end %>
 
 <%= link_to 'Back', actors_path %>

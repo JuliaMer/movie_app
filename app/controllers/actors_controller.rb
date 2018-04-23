@@ -19,9 +19,9 @@ class ActorsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @actor = Actor.find_by(params[:id])
-    actor.destroy
+    @actor.destroy
     redirect_to action: "index"
   end
 
@@ -31,7 +31,6 @@ class ActorsController < ApplicationController
 
   def update
     @actor = Actor.find(params[:id])
-
     if @actor.update(actor_params)
       redirect_to action: 'index'
     else
