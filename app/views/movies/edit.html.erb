@@ -17,8 +17,23 @@
   <% end %>
 
   <p>
-    <%= form.label :title %><br>
+    <%= form.label :title %><br />
     <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :year %><br />
+    <%= form.text_field :year, :placeholder => 'yyyy' %>
+  </p>
+
+  <p>
+    <%= form.label :genre %><br />
+    <%= form.text_field :genre %>
+  </p>
+
+  <p>
+    <%= form.label :trailer %><br />
+    <%= form.text_field :url %>
   </p>
 
   <p>

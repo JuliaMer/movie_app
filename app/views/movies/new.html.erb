@@ -1,15 +1,29 @@
 <% provide(:title, 'Create movie') %>
 <h1>Create movie</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@movie) do |f| %>
-      <%= render 'shared/movie_error_messages' %>
+<%= form_for(@movie) do |form| %>
+  <%= render 'shared/movie_error_messages' %>
 
-      <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
+  <p>
+    <%= form.label :title %><br />
+    <%= form.text_field :title %>
+  </p>
 
-      <%= f.submit "Create movie", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+  <p>
+    <%= form.label :year %><br />
+    <%= form.text_field :year, :placeholder => 'yyyy' %>
+  </p>
+
+  <p>
+    <%= form.label :genre %><br />
+    <%= form.text_field :genre %>
+  </p>
+
+  <p>
+    <%= form.label :url %><br />
+    <%= form.text_field :url %>
+  </p>
+
+
+  <%= form.submit "Create movie", class: "btn btn-primary" %>
+<% end %>

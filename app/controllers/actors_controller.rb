@@ -31,7 +31,7 @@ class ActorsController < ApplicationController
 
   def update
     @actor = Actor.find(params[:id])
-    debugger
+   # debugger
     if @actor.update(actor_params)
       redirect_to action: 'index'
     else
@@ -46,7 +46,7 @@ class ActorsController < ApplicationController
   private
 
   def actor_params
-    params.require(:actor).permit(:name)
+    params.require(:actor).permit(:name, :birthday)
   end
 
 end

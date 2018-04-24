@@ -1,5 +1,8 @@
 <h1><%= @actor.name %></h1>
 
-Schauspieler Information
+<p>
+  Birthday:<br />
+  <%= @actor.birthday %>
+</p>
 
 <%= link_to 'Edit', edit_actor_path(@actor.id) %>

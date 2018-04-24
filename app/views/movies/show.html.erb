@@ -1,5 +1,19 @@
-<%= @movie.title %>
+<h1><%= @movie.title %></h1>
 
-Film Information
+<p>
+  Published:<br/>
+  <%= @movie.year %>
+</p>
+
+<p>
+  Genre:<br/>
+  <%= @movie.find_genre %>
+</p>
+
+<p>
+  Trailer:<br/>
+  <%= @movie.find_url %>
+</p>
+
 
 <%= link_to 'Edit', edit_movie_path(@movie.id) %>
