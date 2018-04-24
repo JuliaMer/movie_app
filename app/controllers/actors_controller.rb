@@ -10,10 +10,10 @@ class ActorsController < ApplicationController
   end
 
   def create
-    @actor = Actor.new(actor_params)    # Not the final implementation!
+    @actor = Actor.new(actor_params)
     if @actor.save
       flash[:success] = "You added a new actor to the database!"
-      redirect_to action: "index"
+      redirect_to actor_path(@actor)
     else
       render 'new'
     end
@@ -33,7 +33,7 @@ class ActorsController < ApplicationController
     @actor = Actor.find(params[:id])
    # debugger
     if @actor.update(actor_params)
-      redirect_to action: 'index'
+      redirect_to actor_path(@actor)
     else
       render 'edit'
     end

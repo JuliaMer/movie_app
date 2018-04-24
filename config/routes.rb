@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'roles/new'
+  get 'roles/edit'
+  get 'roles/index'
   resources :movies
   resources :actors
   resources :roles

@@ -1,0 +1,14 @@
+<h1><%= @role.character %></h1>
+
+<p>
+  Actor:<br/>
+  <%= link_to @actors.find(@role.actor_id).name, actor_path(@role.actor_id) %>
+</p>
+
+<p>
+  Movie:<br/>
+  <%= link_to @movies.find(@role.movie_id).title, movie_path(@role.movie_id) %>
+</p>
+
+<%= link_to 'Edit', edit_role_path(@role.id) %>
+<%= link_to 'Back', roles_path %>

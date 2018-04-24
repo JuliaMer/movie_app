@@ -17,7 +17,7 @@ class Movie < ApplicationRecord
     if url.blank?
       @url = "No trailer added"
     else
-      self.genre
+      self.url
     end
   end
 

@@ -2,7 +2,6 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    #debugger #remove later
   end
 
   def new
@@ -10,10 +9,10 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)    # Not the final implementation!
+    @movie = Movie.new(movie_params)
     if @movie.save
       flash[:success] = "You added a new movie to the database!"
-      redirect_to action: "index"
+      redirect_to movie_path(@movie)
     else
       render 'new'
     end
@@ -32,7 +31,7 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
-      redirect_to action: 'index'
+      redirect_to movie_path(@movie)
     else
       render 'edit'
     end

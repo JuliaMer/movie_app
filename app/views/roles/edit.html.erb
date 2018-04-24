@@ -1,0 +1,47 @@
+<% provide(:title, 'Edit role') %>
+<h1>Edit role</h1>
+
+<%= form_with(model: @role, local: true) do |form| %>
+
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@role.errors.count, "error") %> prohibited
+        this actor from being saved:
+      </h2>
+      <ul>
+        <% @role.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :actor_id %><br/>
+    <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true})%>
+  </p>
+
+   <p>
+  <%= form.label :movie_id %><br/>
+  <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
+</p>
+
+  <p>
+    <%= form.label :character %><br/>
+    <%= form.text_field :character %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <%= link_to 'Destroy', role_path(@role),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+
+
+<%= link_to 'Back', role_path %>
