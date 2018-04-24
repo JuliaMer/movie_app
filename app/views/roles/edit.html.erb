@@ -3,20 +3,6 @@
 
 <%= form_with(model: @role, local: true) do |form| %>
 
-  <% if @role.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@role.errors.count, "error") %> prohibited
-        this actor from being saved:
-      </h2>
-      <ul>
-        <% @role.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <p>
     <%= form.label :actor_id %><br/>
     <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true})%>
@@ -36,7 +22,7 @@
     <%= form.submit %>
   </p>
 
-  <%= link_to 'Destroy', role_path(@role),
+  <%= link_to 'Destroy', role_path(@role.id),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
 
@@ -44,4 +30,6 @@
 
 
 
+
 <%= link_to 'Back', role_path %>
+

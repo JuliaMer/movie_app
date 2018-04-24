@@ -4,7 +4,9 @@
 <ul>
   <% @actors.each do |actor| %>
     <li>
-      <%= link_to actor.name, actor_path(actor.id) %>
+      <%= link_to actor.name, actor_path(actor.id) %>  <%= link_to 'Destroy', actor_path(actor.id),
+                                                                   method: :delete,
+                                                                   data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ul>

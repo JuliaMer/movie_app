@@ -10,11 +10,40 @@
   <%= @movie.find_genre %>
 </p>
 
-<p>
-  Trailer:<br/>
-  <%= @movie.find_url %>
-</p>
+<table>
+  <tr>
+    <th>Actor</th>
+    <th>Character</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @roles.each do |role| %>
+    <tr>
+      <td>
+        <%= link_to Actor.find(role.actor_id).name, actor_path(role.actor_id) %>
+      </td>
+      <td>
+        <%= link_to role.character, role_path(role) %>
+      </td>
+      <td>
+        <%= link_to 'edit',  edit_role_path(role) %>
+      </td>
+      <td>
+        <%= link_to 'delete',  role_path(role.id),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }%>
+      </td>
+    </tr>
+  <% end %>
 
+</table>
+
+
+
+
+<p>
+  <%= link_to 'Trailer', @movie.find_url %>
+</p>
 
 <%= link_to 'Edit', edit_movie_path(@movie.id) %>
 <%= link_to 'Back', movies_path %>

@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @roles = Role.where(:movie_id => @movie.id)
   end
 
   def new
@@ -20,7 +21,9 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
+    @role = Role.find_by_movie_id(@movie.id)
     @movie.destroy
+    @role.destroy
     redirect_to action: "index"
   end
 

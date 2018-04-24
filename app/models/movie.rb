@@ -16,6 +16,7 @@ class Movie < ApplicationRecord
   def find_url
     if url.blank?
       @url = "No trailer added"
+      return false
     else
       self.url
     end

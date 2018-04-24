@@ -6,9 +6,7 @@ class RolesController < ApplicationController
   end
 
   def edit
-    @roles = Role.all
-    @actors = Actor.all
-    @movies = Movie.all
+    @role = Role.find(params[:id])
   end
 
   def index
@@ -33,9 +31,9 @@ class RolesController < ApplicationController
   end
 
   def destroy
-    @role= Role.find(params[:id])
+    @role = Role.find(params[:id])
     @role.destroy
-    redirect_to action: "index"
+    redirect_to roles_path
   end
 
 
