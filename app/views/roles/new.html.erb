@@ -9,10 +9,19 @@
     <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true})%>
   </p>
 
+  <p>
+    Actor doesn't exist?
+    <%= link_to 'create actor', new_actor_path %>
+  </p>
 
   <p>
     <%= form.label :movie_id %><br/>
     <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
+  </p>
+
+  <p>
+    Movie doesn't exist?
+    <%= link_to 'create movie', new_movie_path %>
   </p>
 
   <p>
@@ -25,3 +34,5 @@
   </p>
 
 <% end %>
+
+<%= link_to 'Back', roles_path %>

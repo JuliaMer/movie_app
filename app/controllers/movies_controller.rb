@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @roles = Role.where(:movie_id => @movie.id)
+    #@movies = Movie.where(:title.to_s).includes(:search.to_s)
   end
 
   def new
@@ -44,11 +45,14 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def search
+    @movies = Movie.where("title LIKE '%#{params[:search]}%'")
+  end
 
   private
 
   def movie_params
     params.require(:movie).permit(:title, :year, :genre, :url)
   end
-
 end
+

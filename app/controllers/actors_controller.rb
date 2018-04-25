@@ -33,7 +33,6 @@ class ActorsController < ApplicationController
 
   def update
     @actor = Actor.find(params[:id])
-   # debugger
     if @actor.update(actor_params)
       redirect_to actor_path(@actor)
     else

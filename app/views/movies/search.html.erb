@@ -1,15 +1,5 @@
-<% provide(:title, 'Movie list') %>
-<h1>Movies</h1>
-
-<%= form_tag(search_movies_path) do %>
-  <p>
-    <%= label_tag(:search, "Search movie:") %>
-    <%= text_field_tag(:search) %>
-    <%= submit_tag("Search") %>
-  </p>
-<% end %>
-
-<p>See a list of all movies in the database:</p>
+<% provide(:title, 'Movie search') %>
+<h1>Results</h1>
 
 <table>
   <% @movies.each do |movie| %>
@@ -30,5 +20,4 @@
 
 </table>
 
-
-<h2><%= link_to "Add movie", new_movie_path %></h2>
+<%= link_to 'Back to all movies', movies_path %>

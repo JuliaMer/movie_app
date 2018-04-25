@@ -2,12 +2,24 @@
 
 <h1>Roles</h1>
 <p>See a list of all roles in the database:</p>
-<ul>
+
+<table>
   <% @roles.each do |role| %>
-    <li>
-      <%= link_to role.character, role_path(role) %>
-    </li>
+    <tr>
+      <td>
+        <%= link_to role.character, role_path(role) %>
+      </td>
+      <td>
+        <%= link_to 'delete', role_path(role.id),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+      </td>
+      <td>
+        <%= link_to 'edit', edit_role_path(role.id)%>
+      </td>
+    </tr>
   <% end %>
-</ul>
+
+</table>
 
 <h2><%= link_to "Add role", new_role_path %></h2>

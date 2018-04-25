@@ -36,6 +36,14 @@ class RolesController < ApplicationController
     redirect_to roles_path
   end
 
+  def update
+    @role = Role.find(params[:id])
+    if @role.update(role_params)
+      redirect_to role_path(@role)
+    else
+      render 'edit'
+    end
+  end
 
   private
 
