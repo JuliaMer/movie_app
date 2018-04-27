@@ -1,35 +1,39 @@
-<% provide(:title, 'Edit role') %>
-<h1>Edit role</h1>
+<div class="edition">
 
-<%= form_with(model: @role, local: true) do |form| %>
+  <% provide(:title, 'Edit role') %>
+  <h1>Edit role</h1>
 
-  <p>
-    <%= form.label :actor_id %><br/>
-    <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true})%>
-  </p>
+  <%= form_with(model: @role, local: true) do |form| %>
 
-   <p>
-  <%= form.label :movie_id %><br/>
-  <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
-</p>
+    <p>
+      <%= form.label :actor_id %><br/>
+      <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true}) %>
+    </p>
 
-  <p>
-    <%= form.label :character %><br/>
-    <%= form.text_field :character %>
-  </p>
+    <p>
+      <%= form.label :movie_id %><br/>
+      <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+      <%= form.label :character %><br/>
+      <%= form.text_field :character %>
+    </p>
 
-  <%= link_to 'Destroy', role_path(@role.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+    <p>
+      <%= form.submit %>
+    </p>
 
-<% end %>
+  <% end %>
 
+  <div class="btn btn-delete">
+    <%= link_to 'delete', role_path(@role.id),
+                method: :delete,
+                data: {confirm: 'Are you sure?'} %>
+  </div>
 
+  <div class="btn btn-back">
+    <%= link_to 'back', role_path %>
+  </div>
 
-
-<%= link_to 'Back', role_path %>
-
+</div>

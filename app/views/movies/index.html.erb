@@ -18,12 +18,12 @@
         <%= link_to movie.title, movie_path(movie.id) %>
       </td>
       <td>
+        <%= link_to 'edit', edit_movie_path(movie.id) %>
+      </td>
+      <td>
         <%= link_to 'delete', movie_path(movie.id),
                     method: :delete,
                     data: {confirm: 'Are you sure?'} %>
-      </td>
-      <td>
-        <%= link_to 'edit', edit_movie_path(movie.id) %>
       </td>
     </tr>
   <% end %>

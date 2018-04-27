@@ -1,51 +1,61 @@
-<h1>Edit movie</h1>
+<div class="edition">
 
-<%= form_with(model: @movie, local: true) do |form| %>
+  <% provide(:title, 'Edit movie') %>
 
-  <% if @movie.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@movie.errors.count, "error") %> prohibited
-        this actor from being saved:
-      </h2>
-      <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <h1>Edit movie</h1>
+
+  <%= form_with(model: @movie, local: true) do |form| %>
+
+    <% if @movie.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@movie.errors.count, "error") %> prohibited
+          this actor from being saved:
+        </h2>
+        <ul>
+          <% @movie.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= form.label :title %><br/>
+      <%= form.text_field :title %>
+    </p>
+
+    <p>
+      <%= form.label :year %><br/>
+      <%= form.text_field :year, :placeholder => 'yyyy' %>
+    </p>
+
+    <p>
+      <%= form.label :genre %><br/>
+      <%= form.text_field :genre %>
+    </p>
+
+    <p>
+      <%= form.label :trailer %><br/>
+      <%= form.text_field :url %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+
   <% end %>
 
-  <p>
-    <%= form.label :title %><br />
-    <%= form.text_field :title %>
-  </p>
+  <section>
+    <div class="btn btn-delete">
+      <%= link_to 'delete', movie_path(@movie),
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %>
+    </div>
+  </section>
 
-  <p>
-    <%= form.label :year %><br />
-    <%= form.text_field :year, :placeholder => 'yyyy' %>
-  </p>
+  <div class="btn btn-back">
+    <%= link_to 'back', movie_path %>
+  </div>
 
-  <p>
-    <%= form.label :genre %><br />
-    <%= form.text_field :genre %>
-  </p>
-
-  <p>
-    <%= form.label :trailer %><br />
-    <%= form.text_field :url %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-  <%= link_to 'Destroy', movie_path(@movie),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-
-<% end %>
-
-
-
-<%= link_to 'Back', movie_path %>
+</div>

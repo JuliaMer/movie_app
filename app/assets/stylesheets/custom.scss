@@ -1,0 +1,51 @@
+head {
+
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+footer {
+
+}
+
+
+
+div {
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+
+.edition {
+  h1 {
+    color: lightpink;
+  }
+
+}
+
+.btn {
+  padding: 2px 5px 2px 5px;
+  border-style: solid;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+  margin: 3px;
+}
+
+.btn-back {
+  @extend .btn;
+  border-color: lightgrey;
+  background-color: lightgray;
+}
+
+.btn-delete {
+  @extend .btn;
+  border-color: lightpink;
+  background-color: lightpink;
+  position: relative;
+  left: 290px;
+  bottom: 50px;
+}
+
