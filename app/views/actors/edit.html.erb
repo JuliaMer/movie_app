@@ -35,12 +35,15 @@
 
   <% end %>
 
-  <p>You don't want this actor anymore?</p>
-  <div class="btn btn-delete">
-    <%= link_to 'delete', actor_path(@actor),
-                method: :delete,
-                data: {confirm: 'Are you sure?'} %>
-  </div>
+  <section class="delete">
+    <p1>You don't want this actor anymore?</p1>
+
+    <div class="btn btn-delete">
+      <%= link_to 'delete', actor_path(@actor),
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %>
+    </div>
+  </section>
 
   <div class="btn btn-back">
     <%= link_to 'back', actor_path %>

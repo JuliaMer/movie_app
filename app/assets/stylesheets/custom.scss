@@ -4,10 +4,12 @@ head {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 20cm;
+
 }
 
 footer {
-
+clear:both;
 }
 
 
@@ -27,25 +29,48 @@ div {
 
 .btn {
   padding: 2px 5px 2px 5px;
-  border-style: solid;
+  border-style: none;
   border-radius: 3px;
   display: inline-block;
   text-align: center;
   margin: 3px;
 }
 
-.btn-back {
-  @extend .btn;
-  border-color: lightgrey;
-  background-color: lightgray;
-}
 
 .btn-delete {
   @extend .btn;
-  border-color: lightpink;
   background-color: lightpink;
-  position: relative;
-  left: 290px;
-  bottom: 50px;
+  float: right;
+  &:hover {background-color: lightcoral}
 }
 
+
+.btn-back {
+  @extend .btn;
+  background-color: lightgray;
+  &:hover {background-color: lightslategrey}
+}
+
+p1 {
+  display: inline-block;
+  float: left;
+  width: 10cm;
+}
+
+.delete:before,
+.delete:after {
+  content: "";
+  display: table;
+}
+
+.delete:after {
+  clear: both;
+}
+
+.delete {
+  clear: both;
+}
+
+img {
+
+}
