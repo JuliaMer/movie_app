@@ -1,17 +1,30 @@
-head {
-
-}
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 20cm;
-
+  background-color: whitesmoke;
 }
+
+header {
+  li {
+    a:link, a:visited {
+      color: darkslateblue;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: dodgerblue;
+      font-weight: bold;
+    }
+    a:active{
+      color: darkslateblue;
+    }
+  }
+}
+
 
 footer {
 clear:both;
 }
-
 
 
 div {
@@ -20,9 +33,9 @@ div {
 }
 
 
-.edition {
+.edition, .index, .creation, .show {
   h1 {
-    color: lightpink;
+    color: cornflowerblue;
   }
 
 }
@@ -71,6 +84,17 @@ p1 {
   clear: both;
 }
 
-img {
-
+.navbar {
+  background-image: url(http://clipartstation.com/wp-content/uploads/2017/11/popcorn-clipart-black-and-white.jpg);
+  mix-blend-mode: multiply;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 35mm 35mm;
+  .app-title {
+    position: absolute;
+    right: 34cm;
+    top: 50px;
+    font: italic bold 40px Sans-Serif;
+    color: cadetblue;
+  }
 }
