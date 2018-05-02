@@ -2,43 +2,88 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 20cm;
   background-color: whitesmoke;
+  display: inline-block;
 }
 
+/* header */
+
 header {
+  ul {
+    font-weight: bold;
+    list-style-type: none;
+    margin: 15px 0px 0px 0px;
+    padding: 60px 0px 0px 0px;
+  }
   li {
+    float: left;
+    a {
+      display: block;
+      padding: 0px 16px;
+    }
     a:link, a:visited {
-      color: darkslateblue;
+      color: black;
       text-decoration: none;
     }
     a:hover {
-      text-decoration: underline;
       color: dodgerblue;
       font-weight: bold;
-    }
-    a:active{
-      color: darkslateblue;
     }
   }
 }
 
-
-footer {
-clear:both;
+header:before,
+header:after {
+  content: "";
+  display: table;
 }
 
+header:after {
+  clear: both;
+}
+
+header {
+  clear: both;
+}
+
+.navbar {
+  background-image: url(http://clipartstation.com/wp-content/uploads/2017/11/popcorn-clipart-black-and-white.jpg);
+  mix-blend-mode: multiply;
+  background-position: 100% 20%;
+  background-repeat: no-repeat;
+  background-size: 35mm 35mm;
+  .app-title {
+    position: absolute;
+    right: 34cm;
+    top: 20px;
+    font: italic bold 40px Sans-Serif;
+    color: cadetblue;
+  }
+}
+
+footer {
+  clear: both;
+}
 
 div {
   box-sizing: border-box;
   font-size: 18px;
 }
 
-
-.edition, .index, .creation, .show {
+.edition, .index, .creation, .show, .search-results, .welcome {
   h1 {
-    color: cornflowerblue;
+    color: #008b6a;
   }
-
+  h3 {
+    color: #32888b;
+  }
+  margin-left: 15px;
+  a:link, a:visited {
+    text-decoration: none;
+    color: black;
+  }
 }
+
+/* buttons */
 
 .btn {
   padding: 2px 5px 2px 5px;
@@ -47,27 +92,49 @@ div {
   display: inline-block;
   text-align: center;
   margin: 3px;
+  a:link, a:visited {
+    color: black;
+  }
+  &:hover {
+    font-weight: bold;
+  }
 }
-
 
 .btn-delete {
-  @extend .btn;
   background-color: lightpink;
   float: right;
-  &:hover {background-color: lightcoral}
+  &:hover {
+    background-color: lightcoral
+  }
 }
-
 
 .btn-back {
-  @extend .btn;
   background-color: lightgray;
-  &:hover {background-color: lightslategrey}
+  &:hover {
+    background-color: lightslategrey
+  }
 }
+
+.btn-add, .btn-edit {
+  background-color: lightblue;
+  &:hover {
+    background-color: darkturquoise
+  }
+}
+
+/* show */
 
 p1 {
   display: inline-block;
   float: left;
   width: 10cm;
+}
+
+p2 {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 20px;
+  float: left;
 }
 
 .delete:before,
@@ -84,17 +151,28 @@ p1 {
   clear: both;
 }
 
-.navbar {
-  background-image: url(http://clipartstation.com/wp-content/uploads/2017/11/popcorn-clipart-black-and-white.jpg);
-  mix-blend-mode: multiply;
-  background-position: top right;
-  background-repeat: no-repeat;
-  background-size: 35mm 35mm;
-  .app-title {
-    position: absolute;
-    right: 34cm;
-    top: 50px;
-    font: italic bold 40px Sans-Serif;
-    color: cadetblue;
+/* index */
+
+.all-db-entries {
+  width: 100%;
+  tr {
+    text-algin: left;
+  }
+  a:hover {
+    color: dodgerblue;
+    font-weight: bold;
   }
 }
+
+.delete-row {
+  a:hover {
+    color: lightcoral;
+  }
+}
+
+.edit-row {
+  a:hover {
+    color: darkturquoise;
+  }
+}
+

@@ -1,14 +1,24 @@
-<h1><%= @role.character %></h1>
+<div class="show">
 
-<p>
-  Actor:<br/>
-  <%= link_to @actors.find(@role.actor_id).name, actor_path(@role.actor_id) %>
-</p>
+  <h1><%= @role.character %></h1>
 
-<p>
-  Movie:<br/>
-  <%= link_to @movies.find(@role.movie_id).title, movie_path(@role.movie_id) %>
-</p>
+  <section class="role-detail">
+    <h3>Details</h3>
+  <p2>
+    actor: <%= link_to @actors.find(@role.actor_id).name, actor_path(@role.actor_id) %>
+  </p2>
 
-<%= link_to 'Edit', edit_role_path(@role.id) %>
-<%= link_to 'Back', roles_path %>
+  <p2>
+    movie: <%= link_to @movies.find(@role.movie_id).title, movie_path(@role.movie_id) %>
+  </p2>
+  </section>
+
+  <div class="btn btn-edit">
+    <%= link_to 'edit', edit_role_path(@role.id) %>
+  </div>
+
+  <div class="btn btn-back">
+    <%= link_to 'back', roles_path %>
+  </div>
+
+</div>

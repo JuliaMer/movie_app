@@ -1,3 +1,5 @@
+<div class="index">
+
 <% provide(:title, 'Movie list') %>
 <h1>Movies</h1>
 
@@ -11,16 +13,16 @@
 
 <p>See a list of all movies in the database:</p>
 
-<table>
+<table class="all-db-entries">
   <% @movies.each do |movie| %>
     <tr>
       <td>
         <%= link_to movie.title, movie_path(movie.id) %>
       </td>
-      <td>
+      <td class="edit-row">
         <%= link_to 'edit', edit_movie_path(movie.id) %>
       </td>
-      <td>
+      <td class="delete-row">
         <%= link_to 'delete', movie_path(movie.id),
                     method: :delete,
                     data: {confirm: 'Are you sure?'} %>
@@ -30,5 +32,8 @@
 
 </table>
 
+  <div class="btn btn-add">
+    <%= link_to "add movie", new_movie_path %></h2>
+  </div>
 
-<h2><%= link_to "Add movie", new_movie_path %></h2>
+</div>

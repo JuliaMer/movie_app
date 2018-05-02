@@ -1,28 +1,29 @@
 <div class="index">
 
-<% provide(:title, 'Actor list') %>
-<h1>Actors</h1>
-<p>See a list of all actors in the database:</p>
+  <% provide(:title, 'Actor list') %>
+  <h1>Actors</h1>
+  <p>See a list of all actors in the database:</p>
 
-<table>
-  <% @actors.each do |actor| %>
-    <tr>
-      <td>
-        <%= link_to actor.name, actor_path(actor.id) %>
-      </td>
-      <td>
-        <%= link_to 'delete', actor_path(actor.id),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-      </td>
-      <td>
-        <%= link_to 'edit', edit_actor_path(actor.id)%>
-      </td>
-    </tr>
-  <% end %>
+  <table class="all-db-entries">
+    <% @actors.each do |actor| %>
+      <tr>
+        <td>
+          <%= link_to actor.name, actor_path(actor.id) %>
+        </td>
+        <td class="edit-row">
+          <%= link_to 'edit', edit_actor_path(actor.id) %>
+        </td>
+        <td class="delete-row">
+          <%= link_to 'delete', actor_path(actor.id),
+                      method: :delete,
+                      data: {confirm: 'Are you sure?'} %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-</table>
-
-<h2><%= link_to "Add actor", 'actors/new' %></h2>
+  <div class="btn btn-add">
+    <%= link_to "add actor", 'actors/new' %>
+  </div>
 
 </div>

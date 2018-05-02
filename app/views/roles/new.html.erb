@@ -1,38 +1,48 @@
-<% provide(:title, 'Create role') %>
-<h1>Create role</h1>
+<div class="creation">
 
-<%= form_for(@role) do |form| %>
-  <%= render 'shared/role_error_messages' %>
+  <% provide(:title, 'Create role') %>
+  <h1>Create role</h1>
 
-  <p>
-    <%= form.label :actor_id %><br/>
-    <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true})%>
-  </p>
+  <%= form_for(@role) do |form| %>
+    <%= render 'shared/role_error_messages' %>
 
-  <p>
-    Actor doesn't exist?
-    <%= link_to 'create actor', new_actor_path %>
-  </p>
+    <p>
+      <%= form.label :actor_id %><br/>
+      <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true}) %>
+    </p>
 
-  <p>
-    <%= form.label :movie_id %><br/>
-    <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
-  </p>
+    <p>
+      Actor doesn't exist?
+    <div class="btn btn-add">
+      <%= link_to 'create actor', new_actor_path %>
+    </div>
+    </p>
 
-  <p>
-    Movie doesn't exist?
-    <%= link_to 'create movie', new_movie_path %>
-  </p>
+    <p>
+      <%= form.label :movie_id %><br/>
+      <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
+    </p>
 
-  <p>
-    <%= form.label :character %><br/>
-    <%= form.text_field :character %>
-  </p>
+    <p>
+      Movie doesn't exist?
+    <div class="btn btn-add">
+      <%= link_to 'create movie', new_movie_path %>
+    </div>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+      <%= form.label :character %><br/>
+      <%= form.text_field :character %>
+    </p>
 
-<% end %>
+    <p>
+      <%= form.submit %>
+    </p>
 
-<%= link_to 'Back', roles_path %>
+  <% end %>
+
+  <div class="btn btn-back">
+    <%= link_to 'back', roles_path %>
+  </div>
+
+</div>

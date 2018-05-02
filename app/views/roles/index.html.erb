@@ -1,25 +1,31 @@
-<% provide(:title, 'Roles') %>
+<div class="index">
 
-<h1>Roles</h1>
-<p>See a list of all roles in the database:</p>
+  <% provide(:title, 'Roles') %>
 
-<table>
-  <% @roles.each do |role| %>
-    <tr>
-      <td>
-        <%= link_to role.character, role_path(role) %>
-      </td>
-      <td>
-        <%= link_to 'delete', role_path(role.id),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-      </td>
-      <td>
-        <%= link_to 'edit', edit_role_path(role.id)%>
-      </td>
-    </tr>
-  <% end %>
+  <h1>Roles</h1>
+  <p>See a list of all roles in the database:</p>
 
-</table>
+  <table class="all-db-entries">
+    <% @roles.each do |role| %>
+      <tr>
+        <td>
+          <%= link_to role.character, role_path(role) %>
+        </td>
+        <td>
+          <%= link_to 'edit', edit_role_path(role.id) %>
+        </td>
+        <td class="delete-row">
+          <%= link_to 'delete', role_path(role.id),
+                      method: :delete,
+                      data: {confirm: 'Are you sure?'} %>
+        </td>
+      </tr>
+    <% end %>
 
-<h2><%= link_to "Add role", new_role_path %></h2>
+  </table>
+
+  <div class="btn btn-add">
+    <%= link_to "add role", new_role_path %>
+  </div>
+
+</div>

@@ -1,3 +1,5 @@
+<div class="creation">
+
 <% provide(:title, 'Create movie') %>
 <h1>Create movie</h1>
 
@@ -25,5 +27,11 @@
   </p>
 
 
-  <%= form.submit "Create movie", class: "btn btn-primary" %>
+  <%= form.submit "create movie" %>
 <% end %>
+
+  <div class="btn btn-back">
+    <%= link_to 'back', movies_path %>
+  </div>
+
+</div>

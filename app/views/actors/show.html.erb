@@ -1,49 +1,56 @@
 <div class="show">
 
-<h1><%= @actor.name %></h1>
+  <h1><%= @actor.name %></h1>
 
-<p>
-  Birthday:<br/>
-  <%= @actor.birthday %>
-</p>
+  <section class="personal-data">
+    <h3>Personal data</h3>
+    <p2>
+      born on: <%= @actor.birthday %>
+    </p2>
 
-<p>
-  Age:<br/>
-  <%= @actor.age %>
-</p>
+    <p2>
+      age: <%= @actor.age %>
+    </p2>
+  </section>
 
-<table>
-  <tr>
-    <th>Movie</th>
-    <th>Character</th>
-    <th>
-      <%= link_to 'add role', new_role_path %>
-    </th>
-  </tr>
-  <% @roles.each do |role| %>
-    <tr>
-      <td>
-        <%= link_to Movie.find(role.movie_id).title, movie_path(role.movie_id) %>
-      </td>
-      <td>
-        <%= link_to role.character, role_path(role) %>
-      </td>
-      <td>
-        <%= link_to 'delete', role_path(role.id),
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'} %>
-      </td>
-      <td>
-        <%= link_to 'edit', edit_role_path(role.id) %>
-      </td>
-    </tr>
-  <% end %>
 
-</table>
+  <section class="filmography-data">
+    <h3>Filmography</h3>
+    <table class="all-db-entries">
+      <tr>
+        <th>Movie</th>
+        <th>Character</th>
+        <th>
+          <%= link_to 'add role', new_role_path %>
+        </th>
+      </tr>
+      <% @roles.each do |role| %>
+        <tr>
+          <td>
+            <%= link_to Movie.find(role.movie_id).title, movie_path(role.movie_id) %>
+          </td>
+          <td>
+            <%= link_to role.character, role_path(role) %>
+          </td>
+          <td>
+            <%= link_to 'delete', role_path(role.id),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'} %>
+          </td>
+          <td>
+            <%= link_to 'edit', edit_role_path(role.id) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
 
-<p>
-  <%= link_to 'Edit', edit_actor_path(@actor.id) %>
-  <%= link_to 'Back', actors_path %>
-</p>
+  <div class="btn btn-edit">
+    <%= link_to 'edit', edit_actor_path(@actor.id) %>
+  </div>
+
+  <div class="btn btn-back">
+    <%= link_to 'back', actors_path %>
+  </div>
 
 </div>
