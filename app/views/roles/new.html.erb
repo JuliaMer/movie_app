@@ -11,24 +11,29 @@
       <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true}) %>
     </p>
 
-    <p>
+    <section class="btn-besides-text">
+    <p1>
       Actor doesn't exist?
+    </p1>
     <div class="btn btn-add">
       <%= link_to 'create actor', new_actor_path %>
     </div>
-    </p>
+    </section>
 
     <p>
       <%= form.label :movie_id %><br/>
       <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
     </p>
 
-    <p>
+    <section class="btn-besides-text">
+    <p1>
       Movie doesn't exist?
+    </p1>
+
     <div class="btn btn-add">
       <%= link_to 'create movie', new_movie_path %>
     </div>
-    </p>
+    </section>
 
     <p>
       <%= form.label :character %><br/>
@@ -36,7 +41,7 @@
     </p>
 
     <p>
-      <%= form.submit %>
+      <%= form.submit "create role", class: "btn btn-create"%>
     </p>
 
   <% end %>

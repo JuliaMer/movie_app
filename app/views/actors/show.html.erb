@@ -4,6 +4,7 @@
 
   <section class="personal-data">
     <h3>Personal data</h3>
+
     <p2>
       born on: <%= @actor.birthday %>
     </p2>
@@ -15,34 +16,42 @@
 
 
   <section class="filmography-data">
-    <h3>Filmography</h3>
+
+    <section class="btn-besides-text">
+      <p3>Filmography</p3>
+
+      <div class="btn btn-add btn-role">
+        <%= link_to 'add new role', new_role_path %>
+      </div>
+    </section>
+
     <table class="all-db-entries">
       <tr>
         <th>Movie</th>
         <th>Character</th>
-        <th>
-          <%= link_to 'add role', new_role_path %>
-        </th>
+        <th></th>
+        <th></th>
       </tr>
       <% @roles.each do |role| %>
         <tr>
-          <td>
+          <td class="second-table-entry">
             <%= link_to Movie.find(role.movie_id).title, movie_path(role.movie_id) %>
           </td>
-          <td>
+          <td class="third-table-entry">
             <%= link_to role.character, role_path(role) %>
           </td>
-          <td>
+          <td class="edit-row">
+            <%= link_to 'edit', edit_role_path(role.id) %>
+          </td>
+          <td class="delete-row">
             <%= link_to 'delete', role_path(role.id),
                         method: :delete,
                         data: {confirm: 'Are you sure?'} %>
           </td>
-          <td>
-            <%= link_to 'edit', edit_role_path(role.id) %>
-          </td>
         </tr>
       <% end %>
     </table>
+
   </section>
 
   <div class="btn btn-edit">

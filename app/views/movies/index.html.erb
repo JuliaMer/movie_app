@@ -16,7 +16,7 @@
 <table class="all-db-entries">
   <% @movies.each do |movie| %>
     <tr>
-      <td>
+      <td class="first-table-entry">
         <%= link_to movie.title, movie_path(movie.id) %>
       </td>
       <td class="edit-row">

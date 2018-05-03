@@ -8,10 +8,10 @@
   <table class="all-db-entries">
     <% @roles.each do |role| %>
       <tr>
-        <td>
+        <td class="first-table-entry">
           <%= link_to role.character, role_path(role) %>
         </td>
-        <td>
+        <td class="edit-row">
           <%= link_to 'edit', edit_role_path(role.id) %>
         </td>
         <td class="delete-row">

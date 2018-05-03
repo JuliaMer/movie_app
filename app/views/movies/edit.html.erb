@@ -41,12 +41,12 @@
     </p>
 
     <p>
-      <%= form.submit %>
+      <%= form.submit 'update movie', class: "btn btn-update" %>
     </p>
 
   <% end %>
 
-  <section class="delete">
+  <section class="btn-besides-text">
     <p1>You don't want this movie anymore?</p1>
     <div class="btn btn-delete">
       <%= link_to 'delete', movie_path(@movie),

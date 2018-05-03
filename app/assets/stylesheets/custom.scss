@@ -1,8 +1,16 @@
-body {
+body, footer {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 20cm;
   background-color: whitesmoke;
   display: inline-block;
+}
+
+footer {
+  dispplay: inline-block;
+  position: absolute;
+  bottom:0;
+  width: 60%;
+  margin: 15px;
 }
 
 /* header */
@@ -60,9 +68,6 @@ header {
   }
 }
 
-footer {
-  clear: both;
-}
 
 div {
   box-sizing: border-box;
@@ -70,28 +75,42 @@ div {
 }
 
 .edition, .index, .creation, .show, .search-results, .welcome {
+  margin-left: 15px;
   h1 {
     color: #008b6a;
   }
   h3 {
     color: #32888b;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
   }
-  margin-left: 15px;
   a:link, a:visited {
     text-decoration: none;
     color: black;
+  }
+  p2 {
+    display: inline-block;
+    width: 40%;
+    margin-bottom: 20px;
+    float: left;
+    a:hover {
+      color: dodgerblue;
+      font-weight: bold;
+    }
   }
 }
 
 /* buttons */
 
 .btn {
-  padding: 2px 5px 2px 5px;
+  width: 4cm;
+  padding: 2px 6px 2px 6px;
   border-style: none;
   border-radius: 3px;
   display: inline-block;
   text-align: center;
-  margin: 3px;
+  margin: 10px 0 0 0;
   a:link, a:visited {
     color: black;
   }
@@ -122,6 +141,19 @@ div {
   }
 }
 
+.btn-role {
+  float: right;
+}
+
+.btn-create, .btn-update {
+  font-size: 18px;
+  font-family: inherit;
+  background-color: lightgreen;
+  &:hover {
+    background-color: darkseagreen;
+  }
+}
+
 /* show */
 
 p1 {
@@ -130,33 +162,44 @@ p1 {
   width: 10cm;
 }
 
-p2 {
-  display: inline-block;
-  width: 50%;
-  margin-bottom: 20px;
-  float: left;
+p3 {
+  color: #32888b;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.delete:before,
-.delete:after {
+
+.trailer {
+  margin: 15px 0;
+  font-size: 20px;
+  a:link, a:visited {
+    color: #32888b;
+    font-weight: bold;
+  }
+}
+
+.btn-besides-text:before,
+.btn-besides-text:after {
   content: "";
   display: table;
 }
 
-.delete:after {
+
+.btn-besides-text:after {
   clear: both;
 }
 
-.delete {
+.btn-besides-text {
   clear: both;
 }
 
 /* index */
 
 .all-db-entries {
+  margin: 0;
   width: 100%;
-  tr {
-    text-algin: left;
+  th {
+    text-align: left;
   }
   a:hover {
     color: dodgerblue;
@@ -165,14 +208,27 @@ p2 {
 }
 
 .delete-row {
+  width: 10%;
   a:hover {
     color: lightcoral;
   }
 }
 
 .edit-row {
+  width: 10%;
   a:hover {
     color: darkturquoise;
   }
 }
 
+.first-table-entry {
+ width: 80%;
+}
+
+.second-table-entry{
+  width: 40%;
+}
+
+.third-table-entry {
+  width: 40%;
+}

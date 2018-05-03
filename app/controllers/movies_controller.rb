@@ -24,7 +24,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @role = Role.find_by_movie_id(@movie.id)
     @movie.destroy
-    @role.destroy
+    if !@role.nil?
+      @role.destroy
+    end
     redirect_to action: "index"
   end
 

@@ -23,7 +23,9 @@ class ActorsController < ApplicationController
     @actor = Actor.find(params[:id])
     @role = Role.find_by_actor_id(@actor.id)
     @actor.destroy
+    if !@role.nil?
     @role.destroy
+    end
     redirect_to action: "index"
   end
 
