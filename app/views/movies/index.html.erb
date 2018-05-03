@@ -1,36 +1,21 @@
 <div class="index">
 
-<% provide(:title, 'Movie list') %>
-<h1>Movies</h1>
+  <% provide(:title, 'Movie list') %>
+  <h1>Movies</h1>
 
-<%= form_tag(search_movies_path) do %>
-  <p>
-    <%= label_tag(:search, "Search movie:") %>
-    <%= text_field_tag(:search) %>
-    <%= submit_tag("Search") %>
-  </p>
-<% end %>
-
-<p>See a list of all movies in the database:</p>
-
-<table class="all-db-entries">
-  <% @movies.each do |movie| %>
-    <tr>
-      <td class="first-table-entry">
-        <%= link_to movie.title, movie_path(movie.id) %>
-      </td>
-      <td class="edit-row">
-        <%= link_to 'edit', edit_movie_path(movie.id) %>
-      </td>
-      <td class="delete-row">
-        <%= link_to 'delete', movie_path(movie.id),
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'} %>
-      </td>
-    </tr>
+  <%= form_tag(search_movies_path) do %>
+    <p>
+      <%= label_tag(:search, "Search movie:") %>
+      <%= text_field_tag(:search) %>
+      <%= submit_tag("Search") %>
+    </p>
   <% end %>
 
-</table>
+  <p>See a list of all movies in the database:</p>
+
+  <table class="all-db-entries">
+    <%= render 'layouts/list_movie' %>
+  </table>
 
   <div class="btn btn-add">
     <%= link_to "add movie", new_movie_path %></h2>

@@ -7,19 +7,18 @@ class Movie < ApplicationRecord
 
   def find_genre
     if genre.blank?
-      @genre = "No genre added"
+      "No genre added"
     else
-      self.genre
+      genre
     end
   end
 
   def find_url
     if url.blank?
-      @url = "No trailer added"
-      return false
+      "No trailer added"
     else
-      self.url
+      url
     end
   end
 
-  end
+end

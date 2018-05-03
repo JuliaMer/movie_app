@@ -6,7 +6,7 @@
   <%= form_for(@role) do |form| %>
     <%= render 'shared/role_error_messages' %>
 
-    <p>
+    <p class="select">
       <%= form.label :actor_id %><br/>
       <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true}) %>
     </p>
@@ -15,12 +15,12 @@
     <p1>
       Actor doesn't exist?
     </p1>
-    <div class="btn btn-add">
-      <%= link_to 'create actor', new_actor_path %>
+    <div class="btn btn-add btn-aside">
+      <%= link_to 'add actor', new_actor_path %>
     </div>
     </section>
 
-    <p>
+    <p class="select">
       <%= form.label :movie_id %><br/>
       <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
     </p>
@@ -30,8 +30,8 @@
       Movie doesn't exist?
     </p1>
 
-    <div class="btn btn-add">
-      <%= link_to 'create movie', new_movie_path %>
+    <div class="btn btn-add btn-aside">
+      <%= link_to 'add movie', new_movie_path %>
     </div>
     </section>
 

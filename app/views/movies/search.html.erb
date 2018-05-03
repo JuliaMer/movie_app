@@ -1,29 +1,14 @@
 <div class="search-results">
 
-<% provide(:title, 'Movie search') %>
-<h1>Results</h1>
+  <% provide(:title, 'Movie search') %>
+  <h1>Results</h1>
 
-<table class="all-db-entries">
-  <% @movies.each do |movie| %>
-    <tr>
-      <td>
-        <%= link_to movie.title, movie_path(movie.id) %>
-      </td>
-      <td class="edit-row">
-        <%= link_to 'edit', edit_movie_path(movie.id) %>
-      </td>
-      <td class="delete-row">
-        <%= link_to 'delete', movie_path(movie.id),
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'} %>
-      </td>
-    </tr>
-  <% end %>
-
-</table>
+  <table class="all-db-entries">
+    <%= render 'layouts/list_movie' %>
+  </table>
 
   <div class="btn btn-back">
-<%= link_to 'back', movies_path %>
+    <%= link_to 'back', movies_path %>
   </div>
 
 </div>

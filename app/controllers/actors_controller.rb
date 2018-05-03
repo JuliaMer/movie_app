@@ -2,7 +2,7 @@ class ActorsController < ApplicationController
 
   def show
     @actor = Actor.find(params[:id])
-    @roles = Role.where(:actor_id => @actor.id)
+    @roles = @actor.roles
   end
 
   def new
@@ -21,10 +21,10 @@ class ActorsController < ApplicationController
 
   def destroy
     @actor = Actor.find(params[:id])
-    @role = Role.find_by_actor_id(@actor.id)
+    @roles = @actor.roles
     @actor.destroy
-    if !@role.nil?
-    @role.destroy
+    @roles.each do |role|
+      role.destroy
     end
     redirect_to action: "index"
   end

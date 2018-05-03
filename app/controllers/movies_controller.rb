@@ -2,8 +2,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @roles = Role.where(:movie_id => @movie.id)
-    #@movies = Movie.where(:title.to_s).includes(:search.to_s)
+    @roles = @movie.roles # macht intern: Role.where(:movie_id => @movie.id)
   end
 
   def new
@@ -22,10 +21,10 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
-    @role = Role.find_by_movie_id(@movie.id)
+    @roles = @movie.roles
     @movie.destroy
-    if !@role.nil?
-      @role.destroy
+    @roles.each do |role|
+      role.destroy
     end
     redirect_to action: "index"
   end
@@ -48,7 +47,12 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.where("title LIKE '%#{params[:search]}%'")
+    # @movies = Movie.where("title LIKE '%#{params[:search]}%'") # sicherheitslücke
+    #
+    # @movies = Movie.all.select { |movie| movie.title.downcase.include? params[:search].downcase } # sqlite
+    #
+    @movies = Movie.where("title LIKE '%' || ? || '%'", params[:search]).to_a # sqlite
+    # @movies = Movie.where("title LIKE CONCAT('%', ?, '%')", params[:search]) # mysql
   end
 
   private
