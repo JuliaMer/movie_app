@@ -14,11 +14,11 @@
   <p>See a list of all movies in the database:</p>
 
   <table class="all-db-entries">
-    <%= render 'layouts/list_movies' %>
+    <%= render partial: 'layouts/list_movies', locals: {:movies => @movies}%>
   </table>
 
   <div class="btn btn-add">
-    <%= link_to "add movie", new_movie_path %></h2>
+    <%= link_to "add movie", new_movie_path %>
   </div>
 
 </div>

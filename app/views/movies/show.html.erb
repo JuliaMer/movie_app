@@ -29,7 +29,7 @@
         <th>Actor</th>
         <th>Character</th>
       </tr>
-      <%= render 'layouts/list_roles' %>
+      <%= render partial: 'layouts/list_roles_actor', locals: {:roles => @roles} %>
     </table>
 
   </section>
