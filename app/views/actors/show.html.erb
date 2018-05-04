@@ -30,7 +30,32 @@
         <th>Movie</th>
         <th>Character</th>
       </tr>
-      <%= render partial: 'layouts/list_roles_movies', locals: {:roles => @roles}%>
+      <%= render partial: 'layouts/list_roles_movies', locals: {:roles => @roles} %>
+    </table>
+
+    <h3>Statistics</h3>
+
+    <table class="all-db-entries">
+      <tr>
+        <th>Year</th>
+        <th>Number of movies acted in</th>
+      </tr>
+      <% @actor.employed.each do |year, times| %>
+        <tr>
+          <td>
+            <%= year %>
+          </td>
+          <td>
+            <%= times %>
+          </td>
+      <% end %>
+          <td>
+            total
+          </td>
+          <td>
+            <%= @actor.total %>
+          </td>
+      </tr>
     </table>
 
   </section>

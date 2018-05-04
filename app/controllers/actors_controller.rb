@@ -20,12 +20,9 @@ class ActorsController < ApplicationController
   end
 
   def destroy
-    @actor = Actor.find(params[:id])
-    @roles = @actor.roles
-    @actor.destroy
-    @roles.each do |role|
-      role.destroy
-    end
+    actor = Actor.find(params[:id])
+    roles = actor.roles
+    Actor.delete(actor, roles)
     redirect_to action: "index"
   end
 

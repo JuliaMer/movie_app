@@ -3,14 +3,17 @@ body, footer {
   width: 20cm;
   background-color: whitesmoke;
   display: inline-block;
+  box-sizing: border-box;
 }
 
 footer {
-  dispplay: inline-block;
-  position: absolute;
-  bottom:0;
-  width: 60%;
+  display: inline-block;
+  position: fixed;
+  left: 90%;
+  bottom: 0;
+  width: 100%;
   margin: 15px;
+  overflow: hidden;
 }
 
 /* header */
@@ -83,7 +86,7 @@ div {
     color: #32888b;
     display: inline-block;
     width: 100%;
-    margin: 0;
+    margin: 15px 0 15px 0;
   }
   a:link, a:visited {
     text-decoration: none;
@@ -167,6 +170,7 @@ p1 {
 }
 
 p3 {
+
   color: #32888b;
   font-size: 22px;
   font-weight: bold;
@@ -195,6 +199,11 @@ p3 {
 
 .btn-besides-text {
   clear: both;
+}
+
+.trailer {
+  font-size: inherit;
+  color: darkmagenta;
 }
 
 /* index */

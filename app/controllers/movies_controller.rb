@@ -20,12 +20,9 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @roles = @movie.roles
-    @movie.destroy
-    @roles.each do |role|
-      role.destroy
-    end
+    movie = Movie.find(params[:id])
+    roles = movie.roles
+    Movie.delete(movie, roles)
     redirect_to action: "index"
   end
 

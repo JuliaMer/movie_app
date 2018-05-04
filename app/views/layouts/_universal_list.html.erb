@@ -1,13 +1,13 @@
-<% movies.each do |movie| %>
+<% array.each do |element| %>
   <tr>
     <td class="first-table-entry">
-      <%= link_to movie.title, movie %>
+      <%= link_to element.to_s, element %>
     </td>
     <td class="edit-row">
-      <%= link_to 'edit', edit_movie_path(movie.id) %>
+      <%= link_to 'edit', [:edit, element] %>
     </td>
     <td class="delete-row">
-      <%= link_to 'delete', movie_path(movie.id),
+      <%= link_to 'delete', element,
                   method: :delete,
                   data: {confirm: 'Are you sure?'} %>
     </td>
