@@ -16,21 +16,22 @@ class Actor < ApplicationRecord
   end
 
   def employed
-    movies.group(:year).count
-
-   # movies.each do |movie|
-   #   yr = movie.year
-
-   # end
-
-  end
-
-  def total
-    sum = 0
-    self.employed.each do |year, times|
-      sum += times
+    #movies.group(:year).count
+    employed_list = {}
+    years = movies.select(:year).distinct
+    years.each do |yr|
+      mov = movies.select {|movie| movie.year == yr.year}
+      employed_list[yr.year] = mov.size
     end
-    sum
+    employed_list
   end
+
+def total
+  sum = 0
+  self.employed.each do |year, times|
+    sum += times
+  end
+  sum
+end
 
 end
