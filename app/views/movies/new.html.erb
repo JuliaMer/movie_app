@@ -18,7 +18,7 @@
 
   <p>
     <%= form.label :genre %><br />
-    <%= form.text_field :genre %>
+    <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']]))%>
   </p>
 
   <p>
