@@ -30,6 +30,8 @@ class Movie < ApplicationRecord
       elsif !url.include? "embed/"
         errors.add :url, "incomplete youtube link"
       end
+   elsif url.blank?
+     @url = url
     else
       errors.add :url, "no valid youtube link"
     end
@@ -47,3 +49,4 @@ class Movie < ApplicationRecord
   end
 
 end
+
