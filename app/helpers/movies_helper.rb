@@ -4,7 +4,7 @@ module MoviesHelper
     if movie.url.blank?
       "No Trailer added"
     else
-      render partial:'layouts/trailer', locals: {:movie => movie}
+      render partial: 'movies/trailer', locals: {:movie => movie}
       # '<iframe width="560" height="315" src="https://www.youtube.com/embed/Jer8XjMrUB4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'.html_safe
 
       # '<iframe width="560" height="315" src='.html_safe + movie.url + ' frameborder="0" allow="autoplay; encrypted-media" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'.html_safe
@@ -12,9 +12,10 @@ module MoviesHelper
     end
   end
 
+
 end
 
-
+=begin
 class String
 
   def +(other_string)
@@ -42,3 +43,5 @@ class SafeBuffer
   end
 
 end
+
+=end
