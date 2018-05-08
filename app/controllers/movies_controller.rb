@@ -3,10 +3,12 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @roles = @movie.roles # macht intern: Role.where(:movie_id => @movie.id)
+    @showtimes = Showtime.where(:movie_id => @movie.id)
   end
 
   def new
     @movie = Movie.new
+    5.times {@movie.showtimes.build}
   end
 
   def create
@@ -23,11 +25,13 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     roles = movie.roles
     Movie.delete(movie, roles)
+    flash[:success] = "Movie was deleted!"
     redirect_to action: "index"
   end
 
   def edit
     @movie = Movie.find(params[:id])
+    5.times {@movie.showtimes.build}
   end
 
   def update
@@ -56,7 +60,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :genre, :url)
+    params.require(:movie).permit(:title, :year, :genre, :url, showtimes_attributes: [:id, :cinema, :date, :time, :_destroy])
   end
 end
 

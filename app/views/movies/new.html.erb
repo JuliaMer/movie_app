@@ -26,8 +26,12 @@
     <%= form.text_field :url %>
   </p>
 
+    <p>
+      <%= render partial: 'edit_showtimes' %>
+    </p>
 
-  <%= form.submit "create movie", class: "btn btn-create" %>
+
+    <%= form.submit "create movie", class: "btn btn-create" %>
 <% end %>
 
   <div class="btn btn-back">

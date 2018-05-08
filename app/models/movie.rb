@@ -1,6 +1,8 @@
 class Movie < ApplicationRecord
   has_many :roles
   has_many :actors, :through => :roles
+  has_many :showtimes, dependent: :destroy
+  accepts_nested_attributes_for :showtimes, allow_destroy: true, reject_if: lambda {|a| a['cinema'].blank?}
   validates :title, presence: true, uniqueness: {case_sensitive: false}
   validates :year, presence: true
   validates :url, format: {with: /\A((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?\z/}, allow_blank: true

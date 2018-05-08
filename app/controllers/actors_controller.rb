@@ -23,6 +23,7 @@ class ActorsController < ApplicationController
     actor = Actor.find(params[:id])
     roles = actor.roles
     Actor.delete(actor, roles)
+    flash[:success] = "Actor was deleted!"
     redirect_to action: "index"
   end
 
@@ -33,6 +34,7 @@ class ActorsController < ApplicationController
   def update
     @actor = Actor.find(params[:id])
     if @actor.update(actor_params)
+      flash[:success] = "You updated the actor!"
       redirect_to actor_path(@actor)
     else
       render 'edit'

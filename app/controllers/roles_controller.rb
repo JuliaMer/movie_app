@@ -33,12 +33,14 @@ class RolesController < ApplicationController
   def destroy
     @role = Role.find(params[:id])
     @role.destroy
+    flash[:success] = "Role was deleted!"
     redirect_to roles_path
   end
 
   def update
     @role = Role.find(params[:id])
     if @role.update(role_params)
+      flash[:success] = "You updated the role!"
       redirect_to role_path(@role)
     else
       render 'edit'

@@ -1,0 +1,31 @@
+<table class="all-db-entries">
+  <%= form_for(@movie) do |form| %>
+    <p>Showtimes</p>
+
+    <%= form.fields_for :showtimes do |showtimes_form| %>
+      <tr>
+        <td>
+          <%= showtimes_form.label :cinema %>
+          <%= showtimes_form.text_field :cinema %>
+        </td>
+        <td>
+          <%= showtimes_form.label :date %>
+          <%= showtimes_form.text_field :date %>
+        </td>
+        <td>
+          <%= showtimes_form.label :time %>
+          <%= showtimes_form.text_field :time %>
+        </td>
+        <td>
+          <%= showtimes_form.check_box :_destroy %>
+          <%= showtimes_form.label :_destroy, 'remove' %>
+        </td>
+        <%#= link_to 'delete', showtime_path(showtime.id),
+                method: :delete,
+                data: {confirm: 'Are you sure?'} %>
+    <% end %>
+
+  <% end %>
+  </tr>
+
+</table>

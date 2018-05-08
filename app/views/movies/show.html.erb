@@ -31,13 +31,25 @@
       </tr>
       <%= render partial: 'list_roles_actor', locals: {:roles => @roles} %>
     </table>
+  </section>
 
+  <section class="showtime-information">
+    <h3>Showtimes</h3>
+    <table class="all-db-entries">
+
+      <tr>
+        <th>Cinema</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+      <%= render partial: 'list_showtimes', locals: {:showtimes => @showtimes} %>
+    </table>
   </section>
 
 
   <section class="trailer">
     <h3>Trailer</h3>
-    <%= trailer(@movie)%>
+    <%= trailer(@movie) %>
   </section>
 
   <div class="btn btn-edit">
