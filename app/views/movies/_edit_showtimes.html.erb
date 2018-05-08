@@ -10,11 +10,11 @@
         </td>
         <td>
           <%= showtimes_form.label :date %>
-          <%= showtimes_form.text_field :date %>
+          <%= showtimes_form.text_field :date, :placeholder => 'dd.mm.yyyy' %>
         </td>
         <td>
           <%= showtimes_form.label :time %>
-          <%= showtimes_form.text_field :time %>
+          <%= showtimes_form.text_field :time, :placeholder => 'hh:mm' %>
         </td>
         <td>
           <%= showtimes_form.check_box :_destroy %>

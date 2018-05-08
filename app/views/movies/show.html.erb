@@ -44,6 +44,8 @@
       </tr>
       <%= render partial: 'list_showtimes', locals: {:showtimes => @showtimes} %>
     </table>
+
+    <p>total shows <%= @movie.total_shows %></p>
   </section>
 
 

@@ -2,12 +2,11 @@ class Movie < ApplicationRecord
   has_many :roles
   has_many :actors, :through => :roles
   has_many :showtimes, dependent: :destroy
-  accepts_nested_attributes_for :showtimes, allow_destroy: true, reject_if: lambda {|a| a['cinema'].blank?}
+  accepts_nested_attributes_for :showtimes, allow_destroy: true, reject_if: lambda {|a| a['cinema'].blank? || a['date'].blank?}
   validates :title, presence: true, uniqueness: {case_sensitive: false}
   validates :year, presence: true
   validates :url, format: {with: /\A((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?\z/}, allow_blank: true
   validate :transform_url_to_embedded
-
 
   def find_genre
     if genre.blank?
@@ -48,6 +47,11 @@ class Movie < ApplicationRecord
     roles.each do |role|
       role.destroy
     end
+  end
+
+  def total_shows
+    showtimes.size
+    #Showtime.where(:movie_id => movie.id).size
   end
 
 end
