@@ -1,0 +1,5 @@
+class AddDetailsToShowtime < ActiveRecord::Migration[5.2]
+  def change
+    add_column :showtimes, :time, :string
+  end
+end
