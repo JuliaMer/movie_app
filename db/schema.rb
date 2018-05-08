@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_08_090718) do
+ActiveRecord::Schema.define(version: 2018_05_08_142754) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_05_08_090718) do
     t.datetime "updated_at", null: false
     t.integer "year"
     t.string "genre"
-    t.string "url"
+    t.string "youtube_trailer_url"
     t.index ["title"], name: "index_movies_on_title", unique: true
   end
 

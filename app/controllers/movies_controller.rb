@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    5.times {@movie.showtimes.build}
+    5.times {@movie.showtimes.new}
   end
 
   def create
@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
-    5.times {@movie.showtimes.build}
+    5.times {@movie.showtimes.new}
   end
 
   def update

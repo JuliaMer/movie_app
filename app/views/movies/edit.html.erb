@@ -32,12 +32,12 @@
 
     <p>
       <%= form.label :genre %><br/>
-      <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']]))%>
+      <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']]),{:include_blank => true})%>
     </p>
 
     <p>
       <%= form.label :trailer %><br/>
-      <%= form.url_field :url %>
+      <%= form.url_field :youtube_trailer_url %>
     </p>
 
     <p>

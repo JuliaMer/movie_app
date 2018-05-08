@@ -1,30 +1,30 @@
 <div class="creation">
 
-<% provide(:title, 'Create movie') %>
-<h1>Create movie</h1>
+  <% provide(:title, 'Create movie') %>
+  <h1>Create movie</h1>
 
-<%= form_for(@movie) do |form| %>
-  <%= render 'shared/movie_error_messages' %>
+  <%= form_for(@movie) do |form| %>
+    <%= render 'shared/movie_error_messages' %>
 
-  <p>
-    <%= form.label :title %><br />
-    <%= form.text_field :title %>
-  </p>
+    <p>
+      <%= form.label :title %><br/>
+      <%= form.text_field :title %>
+    </p>
 
-  <p>
-    <%= form.label :year %><br />
-    <%= form.text_field :year, :placeholder => 'yyyy' %>
-  </p>
+    <p>
+      <%= form.label :year %><br/>
+      <%= form.text_field :year, :placeholder => 'yyyy' %>
+    </p>
 
-  <p>
-    <%= form.label :genre %><br />
-    <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']]))%>
-  </p>
+    <p>
+      <%= form.label :genre %><br/>
+      <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']]), {:include_blank => true})%>
+    </p>
 
-  <p>
-    <%= form.label :trailer %><br />
-    <%= form.text_field :url %>
-  </p>
+    <p>
+      <%= form.label :trailer %><br/>
+      <%= form.text_field :youtube_trailer_url %>
+    </p>
 
     <p>
       <%= render partial: 'edit_showtimes' %>
@@ -32,7 +32,7 @@
 
 
     <%= form.submit "create movie", class: "btn btn-create" %>
-<% end %>
+  <% end %>
 
   <div class="btn btn-back">
     <%= link_to 'back', movies_path %>
