@@ -4,20 +4,14 @@ class Role < ApplicationRecord
   validates :character, presence: true
   validates :movie_id, presence: true
   validates :actor_id, presence: true
-  before_validation :role_already_existing
+  before_validation :check_role_existence
 
-  def find
-    @roles = Role.find_by_actor_id(@role.actor_id)
-  end
-
-
-  def role_already_existing
+  def check_role_existence
     role = Role.find_by_character(character)
     if !role.blank?
       if role.movie_id == movie_id
         errors.add(:character, "already existing")
       end
-      @character = role
     end
   end
 end

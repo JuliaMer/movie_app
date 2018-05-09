@@ -4,54 +4,14 @@ class Movie < ApplicationRecord
   has_many :showtimes, dependent: :destroy
   accepts_nested_attributes_for :showtimes, allow_destroy: true, reject_if: lambda {|a| a['cinema'].blank? || a['date'].blank?}
   validates :title, presence: true, uniqueness: {case_sensitive: false}
-  validates :year, presence: true
-  validates :youtube_trailer_url, format: {with: /\A((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?\z/}, allow_blank: true
+  validates :year, presence: true, length: {is: 4, message: "must be four digits."}
+  validates :youtube_trailer_url, format: {with: /\A(https:\/\/www\.youtube\.com\/)(watch\?v=|embed\/)[a-zA-Z0-9]+\z/, message: "is not correct. Ensure entering a complete youtube address."}, allow_blank: true
   before_validation :remove_whitespace_user_input
+  #before_validation :correct_year
   #validate :transform_url_to_embedded just if you want to correct the url all the time, if not better do the correction in the view
-
-=begin
-
-  def find_genre
-    if genre.blank?
-      "No genre added"
-    else
-      genre
-    end
-  end
-
-  def find_url
-    if url.blank?
-      "No trailer added"
-    else
-      url
-    end
-  end
-
-=end
-
-  def ensure_youtube_url
-
-   #if url.include? "youtube"
-      #if url.include? "watch?v="
-       # url.sub!("watch?v=", "embed/")
-      #elsif !url.include? "embed/"
-       # errors.add :url, "incomplete youtube link"
-      #end
-   #elsif url.blank?
-     #url
-    #else
-      #errors.add :url, "no valid youtube link"
-   #end
-
-    if !url.include? "youtube"
-      errors.add :youtube_trailer_url, "no valid youtube link"
-    end
-
-  end
 
   def remove_whitespace_user_input
     title.strip!
-    year.strip!
     youtube_trailer_url.strip!
   end
 

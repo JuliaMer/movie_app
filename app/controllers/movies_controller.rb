@@ -60,7 +60,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :genre, :url, showtimes_attributes: [:id, :cinema, :date, :time, :_destroy])
+    params.require(:movie).permit(:title, :year, :genre, :youtube_trailer_url, showtimes_attributes: [:id, :cinema, :date, :time, :_destroy])
   end
 end
 

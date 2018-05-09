@@ -3,9 +3,10 @@ class Actor < ApplicationRecord
   has_many :movies, :through => :roles
   validates :name, presence: true, uniqueness: {case_sensitive: false}
   validates :birthday, presence: true
+  before_validation :remove_whitespace_user_input
 
   def age
-    age = ((Time.zone.now - birthday.to_time) / 1.year.seconds).floor
+    ((Time.zone.now - birthday.to_time) / 1.year.seconds).floor
   end
 
   def self.delete(actor, roles)
@@ -26,12 +27,18 @@ class Actor < ApplicationRecord
     employed_list
   end
 
-def total
-  sum = 0
-  self.employed.each do |year, times|
-    sum += times
+  def total
+    sum = 0
+    self.employed.each do |year, times|
+      sum += times
+    end
+    sum
   end
-  sum
-end
+
+
+  def remove_whitespace_user_input
+    name.strip!
+    #birthday.strip!
+  end
 
 end
