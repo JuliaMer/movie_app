@@ -18,11 +18,23 @@ class Actor < ApplicationRecord
 
   def employed
     #movies.group(:year).count
+
+    #employed_list = {}
+    #years = movies.select(:year).distinct
+    #years.each do |yr|
+    #mov = movies.select {|movie| movie.year == yr.year}
+    #employed_list[yr.year] = mov.size
+    #end
+    #employed_list
+
     employed_list = {}
-    years = movies.select(:year).distinct
-    years.each do |yr|
-      mov = movies.select {|movie| movie.year == yr.year}
-      employed_list[yr.year] = mov.size
+    movies.each do |movie|
+      yr = movie.year
+      if employed_list.has_key?(yr)
+        employed_list[yr] += employed_list[yr]
+      else
+        employed_list[yr] = 1
+      end
     end
     employed_list
   end
@@ -38,7 +50,6 @@ class Actor < ApplicationRecord
 
   def remove_whitespace_user_input
     name.strip!
-    #birthday.strip!
   end
 
 end

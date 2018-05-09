@@ -7,7 +7,6 @@ class Movie < ApplicationRecord
   validates :year, presence: true, length: {is: 4, message: "must be four digits."}
   validates :youtube_trailer_url, format: {with: /\A(https:\/\/www\.youtube\.com\/)(watch\?v=|embed\/)[a-zA-Z0-9]+\z/, message: "is not correct. Ensure entering a complete youtube address."}, allow_blank: true
   before_validation :remove_whitespace_user_input
-  #before_validation :correct_year
   #validate :transform_url_to_embedded just if you want to correct the url all the time, if not better do the correction in the view
 
   def remove_whitespace_user_input
