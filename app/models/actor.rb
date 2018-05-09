@@ -3,7 +3,7 @@ class Actor < ApplicationRecord
   has_many :movies, :through => :roles
   validates :name, presence: true, uniqueness: {case_sensitive: false}
   validates :birthday, presence: true
-  before_validation :remove_whitespace_user_input
+  before_validation :strip_whitespace_user_input
 
   def age
     ((Time.zone.now - birthday.to_time) / 1.year.seconds).floor
@@ -48,8 +48,10 @@ class Actor < ApplicationRecord
   end
 
 
-  def remove_whitespace_user_input
-    name.strip!
+  def strip_whitespace_user_input
+    unless name.nil?
+      name.strip!
+    end
   end
 
 end
