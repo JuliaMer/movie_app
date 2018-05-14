@@ -1,15 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Role, type: :model do
-  it "is valid with an actor, movie and character" do
-    role = Role.new(
-        actor: "Sabrina",
-        movie: "Werner",
-        character: "Held",
-        )
-    expect(role).to be_valid
-
-  end
 
   it "is invalid without an actor" do
     role = Role.new(actor: nil)
@@ -29,27 +20,7 @@ RSpec.describe Role, type: :model do
     expect(role.errors[:character]).to include("can't be blank")
   end
 
-  it "is invalid with a duplicate character in one movie" do
-
-    movie = Movie.new(
-        title: "Werner",
-        year: "1998",
-        genre: "Action",
-        youtube_trailer_url: "https://www.youtube.com/watch?v=vKQi3bBA1i8"
-    )
-
-    movie.roles.build(
-        character: "Held"
-    )
-
-    new_character = movie.roles.build(
-        character: "Held"
-    )
-
-    new_character.valid?
-    expect(new_character.errors[:character]).to include("")
-  end
-
 end
 
 #Relations fehlen, dh in role muss er als actor: keinen string bekommen, sondern eine Relation zu Actor
+#no built in test associations like that. gem shoulda-matchers
