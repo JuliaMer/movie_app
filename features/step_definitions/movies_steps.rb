@@ -14,13 +14,18 @@ Then("I should see a list of all movies") do
 end
 
 
-When("I click on the add movie button") do
+Given("there is a add movie button") do
   expect(page).to have_link('add movie', href: new_movie_path)
 end
 
-Then("I go to the movies new page") do
-  visit 'movies#new'
+When("I click on the add movie button") do
+  click_link('add movie')
 end
+
+Then("it should redirect to movies new page") do
+  expect(page.current_path).to eq(new_movie_path)
+end
+
 
 Given("movie title is linked to movies show") do
   Movie.all.each do |movie|
@@ -28,25 +33,47 @@ Given("movie title is linked to movies show") do
   end
 end
 
-Then("I click on the movie title") do
-
+When(/I click on the movie title "(.*)"/) do |title|
+  click_link(Movie.find_by_title(title).title)
 end
 
-Then("I go to the movies show") do
-  visit 'movies#show'
+Then(/it should redirect to movies show for "(.*)"/) do |title|
+  expect(page.current_path).to eq(movie_path(Movie.find_by_title(title)))
 end
 
-When("I click on edit") do
+
+Given("there is a edit link for every movie") do
   Movie.all.each do |movie|
     expect(page).to have_link('edit', href: edit_movie_path(movie))
   end
 end
 
-Then("I go to the actors edit") do
-  visit 'movies#edit'
+When(/I click on edit for movie "(.*)"/) do |title|
+  row = page.find("tr", text: title)
+  row.click_link('edit')
 end
 
-When("I click on delete") do
+Then(/it should redirect to movies edit for "(.*)"/) do |title|
+  expect(page.current_path).to eq(edit_movie_path(Movie.find_by_title(title)))
+end
 
+
+Given("there is a delete link for every movie") do
+  table = page.find("table")
+  rows = table.all("tr").count
+  expect(Movie.all.count).to eq(rows)
+end
+
+When(/I click on delete for movie "(.*)"/) do |title|
+  row = page.find("tr", text: title)
+  row.click_link('delete')
+end
+
+Then("it should redirect to movies index") do
+  expect(page.current_path).to eq(movies_path)
+end
+
+Then(/there should be no movie title "(.*)"/) do |title|
+  expect(page).to_not have_text(title)
 end
 

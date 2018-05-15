@@ -40,5 +40,5 @@ RSpec.describe Movie, type: :model do
     movie.valid?
     expect(movie.errors[:title]).to include("has already been taken")
   end
-
+  
 end

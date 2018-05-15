@@ -9,23 +9,28 @@ Feature: Movies List
 
   Scenario: User adds a new movie
     Given I go to the movies index
+    Given there is a add movie button
     When I click on the add movie button
-    Then I go to the movies new page
+    Then it should redirect to movies new page
 
   Scenario: User clicks on a movie
     Given there are two movies in the list
-    Given movie title is linked to movies show
     Given I go to the movies index
-    Then I click on the movie title
+    Given movie title is linked to movies show
+    When I click on the movie title "Wizards"
+    Then it should redirect to movies show for "Wizards"
 
   Scenario: User clicks on edit
     Given there are two movies in the list
     Given I go to the movies index
-    When I click on edit
-    Then I go to the actors edit
+    Given there is a edit link for every movie
+    When I click on edit for movie "Wizards"
+    Then it should redirect to movies edit for "Wizards"
 
   Scenario: User clicks on delete
     Given there are two movies in the list
     Given I go to the movies index
-    When I click on delete
-    Then I go to the actors index
+    Given there is a delete link for every movie
+    When I click on delete for movie "Wizards"
+    Then it should redirect to movies index
+    Then there should be no movie title "Wizards"
