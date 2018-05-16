@@ -77,3 +77,22 @@ Then(/there should be no movie title "(.*)"/) do |title|
   expect(page).to_not have_text(title)
 end
 
+
+Given("there is a search form for movie titles") do
+  expect(page).to have_field("search")
+  expect(page).to have_button("Search")
+end
+
+When(/I search for "(.*)"/) do |snippet|
+  fill_in(:search, with: snippet)
+  click_button('Search')
+end
+
+Then("it should redirect to movies search page") do
+  expect(page.current_path).to eq(search_movies_path)
+end
+
+Then("it returns all matching movie titles") do
+  expect(page).to have_text("Wizards")
+  expect(page).to_not have_text("Witches")
+end

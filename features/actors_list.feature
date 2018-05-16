@@ -1,4 +1,4 @@
-Feature: Actors List
+Feature: Manage Actors List
   As a user
   I want to manage a list of actors
 

@@ -20,7 +20,7 @@ module MoviesHelper
   end
 
 
-  def find_genre(movie)
+  def search_for_genre(movie)
     if movie.genre.blank?
       "no genre added"
     else

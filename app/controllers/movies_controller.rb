@@ -54,6 +54,7 @@ class MoviesController < ApplicationController
     # @movies = Movie.all.select { |movie| movie.title.downcase.include? params[:search].downcase } # sqlite
     #
     @movies = Movie.where("title LIKE '%' || ? || '%'", params[:search]).to_a # sqlite
+    #
     # @movies = Movie.where("title LIKE CONCAT('%', ?, '%')", params[:search]) # mysql
   end
 

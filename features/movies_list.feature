@@ -1,4 +1,4 @@
-Feature: Movies List
+Feature: Manage Movies List
   As a user
   I want to manage a list of movies
 
@@ -34,3 +34,11 @@ Feature: Movies List
     When I click on delete for movie "Wizards"
     Then it should redirect to movies index
     Then there should be no movie title "Wizards"
+
+  Scenario: User searches for a movie title
+    Given there are two movies in the list
+    Given I go to the movies index
+    Given there is a search form for movie titles
+    When I search for "ards"
+    Then it should redirect to movies search page
+    Then it returns all matching movie titles
