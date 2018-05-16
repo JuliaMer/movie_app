@@ -3,6 +3,7 @@ Given("there are two movies in the list") do
   Movie.create!(title: "Wizards", year: "2018", genre: "Action", youtube_trailer_url: "https://www.youtube.com/watch?v=vKQi3bBA1i8")
 end
 
+#movies_list
 When("I go to the movies index") do
   visit 'movies#index'
 end
@@ -14,15 +15,15 @@ Then("I should see a list of all movies") do
 end
 
 
-Given("there is a add movie button") do
+Given("there is a add movie link") do
   expect(page).to have_link('add movie', href: new_movie_path)
 end
 
-When("I click on the add movie button") do
+When("I click on the add movie link") do
   click_link('add movie')
 end
 
-Then("it should redirect to movies new page") do
+Then("it should redirect to the movies new page") do
   expect(page.current_path).to eq(new_movie_path)
 end
 
@@ -53,6 +54,7 @@ When(/I click on edit for movie "(.*)"/) do |title|
   row.click_link('edit')
 end
 
+#used in movies_list.feature
 Then(/it should redirect to movies edit for "(.*)"/) do |title|
   expect(page.current_path).to eq(edit_movie_path(Movie.find_by_title(title)))
 end
@@ -69,7 +71,7 @@ When(/I click on delete for movie "(.*)"/) do |title|
   row.click_link('delete')
 end
 
-Then("it should redirect to movies index") do
+Then("it should redirect to the movies index") do
   expect(page.current_path).to eq(movies_path)
 end
 
@@ -88,7 +90,7 @@ When(/I search for "(.*)"/) do |snippet|
   click_button('Search')
 end
 
-Then("it should redirect to movies search page") do
+Then("it should redirect to the movies search page") do
   expect(page.current_path).to eq(search_movies_path)
 end
 
@@ -96,3 +98,5 @@ Then("it returns all matching movie titles") do
   expect(page).to have_text("Wizards")
   expect(page).to_not have_text("Witches")
 end
+
+#movies_show

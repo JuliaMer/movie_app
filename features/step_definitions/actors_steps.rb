@@ -13,20 +13,20 @@ Then("I should see a list of all actors") do
   end
 end
 
-Given("there is a add actor button") do
+Given("there is a add actor link") do
   expect(page).to have_link('add actor', href: new_actor_path)
 end
 
-When("I click on the add actor button") do
+When("I click on the add actor link") do
   click_link('add actor')
 end
 
-Then("it should redirect to actors new page") do
+Then("it should redirect to the actors new page") do
   expect(page.current_path).to eq(new_actor_path)
 end
 
 
-Given("actor name is linked to actors show") do
+Given("actor name is linked to the actors show") do
   Movie.all.each do |movie|
     expect(page).to have_link(movie.title, href: movie_path(movie))
   end
@@ -52,7 +52,7 @@ When(/I click on edit for actor "(.*)"/) do |name|
   row.click_link('edit')
 end
 
-Then(/it should redirect to actors edit for "(.*)"/) do |name|
+Then(/it should redirect to the actors edit for "(.*)"/) do |name|
   expect(page.current_path).to eq(edit_actor_path(Actor.find_by_name(name)))
 end
 
@@ -68,7 +68,7 @@ When(/I click on delete for actor "(.*)"/) do |name|
   row.click_link('delete')
 end
 
-Then("it should redirect to actors index") do
+Then("it should redirect to the actors index") do
   expect(page.current_path).to eq(actors_path)
 end
 

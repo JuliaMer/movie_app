@@ -9,9 +9,9 @@ Feature: Manage Movies List
 
   Scenario: User adds a new movie
     Given I go to the movies index
-    Given there is a add movie button
-    When I click on the add movie button
-    Then it should redirect to movies new page
+    Given there is a add movie link
+    When I click on the add movie link
+    Then it should redirect to the movies new page
 
   Scenario: User clicks on a movie
     Given there are two movies in the list
@@ -32,7 +32,7 @@ Feature: Manage Movies List
     Given I go to the movies index
     Given there is a delete link for every movie
     When I click on delete for movie "Wizards"
-    Then it should redirect to movies index
+    Then it should redirect to the movies index
     Then there should be no movie title "Wizards"
 
   Scenario: User searches for a movie title
@@ -40,5 +40,5 @@ Feature: Manage Movies List
     Given I go to the movies index
     Given there is a search form for movie titles
     When I search for "ards"
-    Then it should redirect to movies search page
+    Then it should redirect to the movies search page
     Then it returns all matching movie titles

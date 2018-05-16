@@ -24,7 +24,7 @@ class RolesController < ApplicationController
     @role = Role.new(role_params)
     if @role.save
       flash[:success] = "You added a new role to the database!"
-      redirect_to role_path(@role)
+      redirect_to movie_path(@role.movie_id)
     else
       render 'new'
     end
@@ -32,9 +32,10 @@ class RolesController < ApplicationController
 
   def destroy
     @role = Role.find(params[:id])
+    movie = @role.movie_id
     @role.destroy
     flash[:success] = "Role was deleted!"
-    redirect_to roles_path
+    redirect_to movie_path(movie)
   end
 
   def update
