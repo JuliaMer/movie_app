@@ -62,3 +62,14 @@
   </div>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".btn-add").delay(4000).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
+        $(".showtime-information").hide(300).slideDown(2000);
+        $(".btn-back").on('click', function () {
+            $(".btn-back").fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
+            $(".btn-back").html('wow');
+        });
+    });
+</script>

@@ -43,5 +43,5 @@ Feature: Manage roles list
     Given I go to the roles index
     Given there is a delete link for every role
     When I click on delete for role "Gandalf"
-    Then I should be on the roles index
+    Then I should be on the movies show for "Wizards"
     Then I should not see "Gandalf"

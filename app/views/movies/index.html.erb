@@ -13,8 +13,8 @@
 
   <p>See a list of all movies in the database:</p>
 
-  <table class="all-db-entries">
-    <%= render partial: 'list_movies', locals: {:movies => @movies}%>
+  <table class="all-db-entries, all-movies">
+    <%= render partial: 'list_movies', locals: {:movies => @movies} %>
     <%#= render partial: 'layouts/universal_list', locals: {:array => @movies }%>
   </table>
 
@@ -22,4 +22,18 @@
     <%= link_to "add movie", new_movie_path %>
   </div>
 
+  <div class="btn btn-count">
+    count movies
+  </div>
+
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".btn-count").on('click', function () {
+            var row_count = $(".all-movies").find("tr").length.toString();
+            $(".btn-count").fadeOut(300).fadeIn(300);
+            $(".btn-count").html(row_count);
+        });
+    });
+</script>

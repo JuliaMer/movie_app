@@ -34,5 +34,8 @@ class Movie < ApplicationRecord
     #Showtime.where(:movie_id => movie.id).size
   end
 
+  def self.search(query)
+    Movie.where("title LIKE '%' || ? || '%'", query).to_a
+  end
 end
 

@@ -14,7 +14,6 @@
     </p2>
   </section>
 
-  Gandalf
 
   <section class="filmography-data">
 
@@ -34,30 +33,32 @@
       <%= render partial: 'layouts/list_roles_movies', locals: {:roles => @roles} %>
     </table>
 
-    <h3>Statistics</h3>
+    <section class="statistic">
+      <h3>Statistics</h3>
 
-    <table class="all-db-entries">
-      <tr>
-        <th>Year</th>
-        <th>Number of movies acted in</th>
-      </tr>
-      <% @actor.employed.each do |year, times| %>
+      <table class="all-db-entries">
         <tr>
-          <td>
-            <%= year %>
-          </td>
-          <td>
-            <%= times %>
-          </td>
-      <% end %>
-          <td>
-            total
-          </td>
-          <td>
-            <%= @actor.total %>
-          </td>
-      </tr>
-    </table>
+          <th>Year</th>
+          <th>Number of movies acted in</th>
+        </tr>
+        <% @actor.employed.each do |year, times| %>
+          <tr>
+            <td>
+              <%= year %>
+            </td>
+            <td>
+              <%= times %>
+            </td>
+        <% end %>
+        <td>
+          total
+        </td>
+        <td>
+          <%= @actor.total %>
+        </td>
+        </tr>
+      </table>
+    </section>
 
   </section>
 
@@ -70,3 +71,12 @@
   </div>
 
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        $(".btn-add").delay(4000).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
+        $(".statistic").hide(300).slideDown(3000);
+    });
+
+</script>
