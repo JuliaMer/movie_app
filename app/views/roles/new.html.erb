@@ -3,12 +3,13 @@
   <% provide(:title, 'Create role') %>
   <h1>Create role</h1>
 
-  <%= form_for(@role) do |form| %>
+  <%= form_for(@role, html: {id: "new-role-form"}) do |form| %>
     <%= render 'shared/role_error_messages' %>
 
-    <p class="select">
+    <p id="actor" class="select validatable">
       <%= form.label :actor_id %><br/>
       <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true}) %>
+      <error id="actor-error"></error>
     </p>
 
     <section class="btn-besides-text">
@@ -20,9 +21,10 @@
     </a>
     </section>
 
-    <p class="select">
+    <p id="movie" class="select validatable">
       <%= form.label :movie_id %><br/>
       <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
+      <error id="movie-error"></error>
     </p>
 
     <section class="btn-besides-text">
@@ -35,12 +37,13 @@
     </a>
     </section>
 
-    <p>
+    <p id="character" class="validatable">
       <%= form.label :character %><br/>
       <%= form.text_field :character %>
+      <error id="character-error"></error>
     </p>
 
-    <p>
+    <p id="submit">
       <%= form.submit "create role", class: "btn btn-create"%>
     </p>
 

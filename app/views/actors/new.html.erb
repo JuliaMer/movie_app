@@ -3,20 +3,22 @@
 <% provide(:title, 'Create actor') %>
 <h1>Create actor</h1>
 
-    <%= form_for(@actor) do |form| %>
+    <%= form_for(@actor, html: {id: "new-actor-form"}) do |form| %>
       <%= render 'shared/actor_error_messages' %>
 
-      <p>
+      <p id="name" class="validatable">
       <%= form.label :name %><br>
       <%= form.text_field :name%>
+        <error id="name-error"></error>
       </p>
 
-      <p>
+      <p id="birthday" class="validatable">
       <%= form.label :birthday %><br>
       <%= form.text_field :birthday, :placeholder => 'dd.mm.yyyy'%>
+        <error id="birthday-error"></error>
       </p>
 
-      <p>
+      <p id="submit">
       <%= form.submit "create actor", class:"btn btn-create"%>
       </p>
 

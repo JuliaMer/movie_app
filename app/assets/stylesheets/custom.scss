@@ -247,6 +247,16 @@ p3 {
 
 .select {
   margin-bottom: 5px;
+
+  &.is-invalid select {
+    border-color: red;
+    background-color: lightcoral;
+  }
+
+  &.is-valid select {
+    border-color: green;
+    background-color: darkseagreen;
+  }
 }
 
 .validatable {
@@ -275,5 +285,6 @@ p3 {
     display: unset;
     color: red;
   }
+
 
 }

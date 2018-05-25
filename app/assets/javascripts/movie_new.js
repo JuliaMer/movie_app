@@ -29,16 +29,9 @@ $(document).ready(function () {
 
         $("#title").focusout(function () {
             var formInput = document.getElementById("movie_title").value;
-            validate_presence("#title", formInput);
-            /*
-            if (formInput == "") {
-                $("#title").addClass("is-invalid");
-                $("#title").removeClass("is-valid");
-            } else {
-                $("#title").removeClass("is-invalid");
-                $("#title").addClass("is-valid");
-            }
-            */
+            if(!(validate_presence("#title", formInput))){
+                document.getElementById("title-error").innerHTML = "Title must be filled out";
+            };
         });
 
 
@@ -52,30 +45,13 @@ $(document).ready(function () {
                     document.getElementById("year-error").innerHTML = "Year must be four digits";
                 }
             }
-
-            /*
-            if (formInput == "") {
-                $("#year").addClass("is-invalid");
-                $("#year").removeClass("is-valid");
-                document.getElementById("year-error").innerHTML = "Year must be filled out";
-            } else if (formInput.length != 4) {
-                $("#year").addClass("is-invalid");
-                $("#year").removeClass("is-valid");
-                document.getElementById("movie_year").value = "";
-                document.getElementById("year-error").innerHTML = "Year must be four digits";
-            } else {
-                $("#year").removeClass("is-invalid");
-                $("#year").addClass("is-valid");
-            }
-            */
         });
 
         $("#submit").click(function (event) {
-            if ((document.getElementById("movie_title").value) == "") {
+            if (!(validate_presence("#title", document.getElementById("movie_title").value))) {
                 event.preventDefault();
                 window.alert("Please insert title");
-
-            } else if ((document.getElementById("movie_year").value) == "" || (document.getElementById("movie_year").value.length != 4)) {
+            } else if (!(validate_presence("#year", document.getElementById("movie_year").value))) {
                 event.preventDefault();
                 window.alert("Please correct year");
             }
