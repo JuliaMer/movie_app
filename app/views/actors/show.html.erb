@@ -20,9 +20,10 @@
     <section class="btn-besides-text">
       <p3>Filmography</p3>
 
-      <div class="btn btn-add btn-role">
-        <%= link_to 'add new role', new_role_path %>
-      </div>
+      <a class="btn btn-add btn-role" href=<%= new_role_path %>>
+        add new role
+      </a>
+
     </section>
 
     <table class="all-db-entries">
@@ -62,13 +63,13 @@
 
   </section>
 
-  <div class="btn btn-edit">
-    <%= link_to 'edit', edit_actor_path(@actor.id) %>
-  </div>
+  <a class="btn btn-edit" href=<%= edit_actor_path(@actor.id) %>>
+    edit
+  </a>
 
-  <div class="btn btn-back">
-    <%= link_to 'back', actors_path %>
-  </div>
+  <a class="btn btn-back" href=<%= actors_path  %>>
+    back
+  </a>
 
 </div>
 

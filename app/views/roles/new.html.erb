@@ -15,9 +15,9 @@
     <p1>
       Actor doesn't exist?
     </p1>
-    <div class="btn btn-add btn-aside">
-      <%= link_to 'add actor', new_actor_path %>
-    </div>
+    <a class="btn btn-add btn-aside" href=<%= new_actor_path %>>
+      add actor
+    </a>
     </section>
 
     <p class="select">
@@ -30,9 +30,9 @@
       Movie doesn't exist?
     </p1>
 
-    <div class="btn btn-add btn-aside">
-      <%= link_to 'add movie', new_movie_path %>
-    </div>
+    <a class="btn btn-add btn-aside" href=<%= new_movie_path %>>
+      add movie
+    </a>
     </section>
 
     <p>
@@ -46,8 +46,8 @@
 
   <% end %>
 
-  <div class="btn btn-back">
-    <%= link_to 'back', roles_path %>
-  </div>
+  <a class="btn btn-back" href=<%= roles_path %>>
+    back
+  </a>
 
 </div>

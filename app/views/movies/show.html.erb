@@ -19,9 +19,9 @@
     <section class="btn-besides-text">
       <p3>Cast</p3>
 
-      <div class="btn btn-add btn-role">
-        <%= link_to 'add new role', new_role_path %>
-      </div>
+      <a class="btn btn-add btn-role" href= <%= new_role_path %>>
+        add new role
+      </a>
     </section>
 
     <table class="all-db-entries">
@@ -48,20 +48,22 @@
     <p>total shows <%= @movie.total_shows %></p>
   </section>
 
-  <section class="trailer">
+  <section class="trailer" onclick="window.alert(5 + 6)">
     <h3>Trailer</h3>
     <%= trailer(@movie) %>
   </section>
 
-  <div class="btn btn-edit">
-    <%= link_to 'edit', edit_movie_path(@movie.id) %>
-  </div>
 
-  <div class="btn btn-back">
-    <%= link_to 'back', movies_path %>
-  </div>
+  <a class="btn btn-edit" href=<%= edit_movie_path(@movie.id) %>>
+    edit
+  </a>
+
+  <a class="btn btn-back" href=<%= movies_path %>>
+    back
+  </a>
 
 </div>
+
 
 <script>
     $(document).ready(function () {
@@ -69,7 +71,7 @@
         $(".showtime-information").hide(300).slideDown(2000);
         $(".btn-back").on('click', function () {
             $(".btn-back").fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
-            $(".btn-back").html('wow');
         });
     });
+
 </script>

@@ -9,8 +9,9 @@
     <%= render partial: 'layouts/list_roles_movies', locals: {:roles => @roles}%>
   </table>
 
-  <div class="btn btn-add">
-    <%= link_to "add role", new_role_path %>
-  </div>
+  <a class="btn btn-add" href=<%=new_role_path %>>
+    add role
+  </a>
+
 
 </div>

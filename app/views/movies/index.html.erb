@@ -18,13 +18,13 @@
     <%#= render partial: 'layouts/universal_list', locals: {:array => @movies }%>
   </table>
 
-  <div class="btn btn-add">
-    <%= link_to "add movie", new_movie_path %>
-  </div>
+  <a class="btn btn-add" href=<%= new_movie_path %>>
+    add movie
+  </a>
 
-  <div class="btn btn-count">
+  <a class="btn btn-count">
     count movies
-  </div>
+  </a>
 
 </div>
 

@@ -71,7 +71,6 @@ header {
   }
 }
 
-
 div {
   box-sizing: border-box;
   font-size: 18px;
@@ -103,7 +102,6 @@ div {
     }
   }
 }
-
 
 /* buttons */
 
@@ -177,7 +175,6 @@ p3 {
   font-weight: bold;
 }
 
-
 .trailer {
   margin: 15px 0;
   font-size: 20px;
@@ -192,7 +189,6 @@ p3 {
   content: "";
   display: table;
 }
-
 
 .btn-besides-text:after {
   clear: both;
@@ -236,14 +232,14 @@ p3 {
 }
 
 .first-table-entry {
- width: 80%;
+  width: 80%;
 }
 
-.second-table-entry{
+.second-table-entry {
   width: 40%;
 }
 
-.three-columns{
+.three-columns {
   width: 30%;
 }
 
@@ -251,4 +247,33 @@ p3 {
 
 .select {
   margin-bottom: 5px;
+}
+
+.validatable {
+
+  input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 5px 7px;
+  }
+  
+  &.is-valid input {
+    border-color: green;
+  }
+
+  error {
+    display: none;
+  }
+
+
+  &.is-invalid input {
+    border-color: red;
+  }
+
+  &.is-invalid error {
+    display: unset;
+    color: red;
+  }
+
 }

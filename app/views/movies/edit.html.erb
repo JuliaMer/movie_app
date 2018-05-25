@@ -51,16 +51,17 @@
   <% end %>
 
   <section class="btn-besides-text">
+
     <p1>You don't want this movie anymore?</p1>
     <div class="btn btn-delete">
       <%= link_to 'delete', movie_path(@movie),
                   method: :delete,
                   data: {confirm: 'Are you sure?'} %>
     </div>
+
   </section>
 
-  <div class="btn btn-back">
-    <%= link_to 'back', movie_path %>
-  </div>
-
+  <a class="btn btn-back" href=<%= movie_path %>>
+    back
+  </a>
 </div>

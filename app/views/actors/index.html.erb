@@ -8,8 +8,8 @@
     <%= render partial: 'list_actors', locals:  {:actors => @actors } %>
   </table>
 
-  <div class="btn btn-add">
-    <%= link_to "add actor", new_actor_path %>
-  </div>
+  <a class="btn btn-add" href=<%= new_actor_path %>>
+    add actor
+  </a>
 
 </div>
