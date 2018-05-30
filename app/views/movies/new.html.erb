@@ -23,9 +23,10 @@
       <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']], selected: @movie.genre), {:include_blank => true}) %>
     </p>
 
-    <p id="trailer">
+    <p id="trailer" class="validatable">
       <%= form.label :trailer %><br/>
-      <%= form.text_field :youtube_trailer_url %>
+      <%= form.text_field :youtube_trailer_url%>
+      <error id="trailer-error"></error>
     </p>
 
     <p id="showtime">
@@ -43,3 +44,8 @@
   </a>
 
 </div>
+
+<!--
+<button>Try ajax</button>
+<p id="error-message"></p>
+-->

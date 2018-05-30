@@ -4,7 +4,7 @@
 
   <h1>Edit actor</h1>
 
-  <%= form_with(model: @actor, local: true) do |form| %>
+  <%= form_with(model: @actor, local: true, html: {id: "edit-actor-form"}) do |form| %>
 
     <% if @actor.errors.any? %>
       <div id="error_explanation">
@@ -20,14 +20,16 @@
       </div>
     <% end %>
 
-    <p>
+    <p id="name" class="validatable">
       <%= form.label :name %><br>
       <%= form.text_field :name %>
+      <error id="name-error"></error>
     </p>
 
-    <p>
+    <p id="birthday" class="validatable">
       <%= form.label :birthday %><br>
       <%= form.text_field :birthday, :placeholder => 'dd.mm.yyyy' %>
+      <error id="birthday-error"></error>
     </p>
 
     <p>

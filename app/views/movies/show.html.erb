@@ -46,9 +46,12 @@
     </table>
 
     <p>total shows <%= @movie.total_shows %></p>
+    <p id="add-showtime">
+      add showtime
+    </p>
   </section>
 
-  <section class="trailer" onclick="window.alert(5 + 6)">
+  <section class="trailer">
     <h3>Trailer</h3>
     <%= trailer(@movie) %>
   </section>
@@ -69,9 +72,6 @@
     $(document).ready(function () {
         $(".btn-add").delay(4000).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
         $(".showtime-information").hide(300).slideDown(2000);
-        $(".btn-back").on('click', function () {
-            $(".btn-back").fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
-        });
     });
 
 </script>

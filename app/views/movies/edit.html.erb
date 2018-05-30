@@ -4,7 +4,7 @@
 
   <h1>Edit movie</h1>
 
-  <%= form_with(model: @movie, local: true) do |form| %>
+  <%= form_with(model: @movie, local: true, html: {id: "edit-movie-form"}) do |form| %>
 
     <% if @movie.errors.any? %>
       <div id="error_explanation">
@@ -20,31 +20,34 @@
       </div>
     <% end %>
 
-    <p>
+    <p id="title" class="validatable">
       <%= form.label :title %><br/>
       <%= form.text_field :title %>
+      <error id="title-error"></error>
     </p>
 
-    <p>
+    <p id="year" class="validatable">
       <%= form.label :year %><br/>
       <%= form.text_field :year, :placeholder => 'yyyy' %>
+      <error id="year-error"></error>
     </p>
 
-    <p>
+    <p id="genre">
       <%= form.label :genre %><br/>
       <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']], selected: @movie.genre),{:include_blank => true})%>
     </p>
 
-    <p>
+    <p id="trailer" class="validatable">
       <%= form.label :trailer %><br/>
       <%= form.text_field :youtube_trailer_url %>
+      <error id="trailer-error"></error>
     </p>
 
-    <p>
+    <p id="showtime">
       <%= render partial: 'edit_showtimes' %>
     </p>
 
-    <p>
+    <p id="submit">
       <%= form.submit 'update movie', class: "btn btn-update" %>
     </p>
 

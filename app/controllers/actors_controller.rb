@@ -11,12 +11,26 @@ class ActorsController < ApplicationController
 
   def create
     @actor = Actor.new(actor_params)
-    if @actor.save
+
+     if @actor.save
       flash[:success] = "You added a new actor to the database!"
       redirect_to actor_path(@actor)
     else
       render 'new'
     end
+
+=begin
+    respond_to do |format|
+      if @actor.save
+        format.html { redirect_to @actor, notice: 'Actor was successfully created.' }
+        format.js
+        format.json { render json: @actor, status: :created, location: @actor }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @actor.errors, status: :unprocessable_entity }
+      end
+    end
+=end
   end
 
   def destroy

@@ -1,4 +1,4 @@
-/*
+
 function validate_presence(id, input) {
     if (input == "") {
         $(id).addClass("is-invalid");
@@ -24,14 +24,15 @@ function validate_length(id, input, num) {
 };
 
 $(document).ready(function () {
-    if ($("#new-actor-form").length > 0) {
-
-        window.alert("Hello, you are about to create a new actor. Name and birthday are required");
+    if ($("#new-actor-form").length > 0 || $("#edit-actor-form").length > 0) {
+        var name_before_edit = document.getElementById("actor_name").value;
+        var birthday_before_edit = document.getElementById("actor_birthday").value;
 
         $("#name").focusout(function () {
             var formInput = document.getElementById("actor_name").value;
             if(!(validate_presence("#name", formInput))){
                 document.getElementById("name-error").innerHTML = "Name must be filled out";
+                document.getElementById("actor_name").value = name_before_edit;
             };
         });
 
@@ -40,9 +41,10 @@ $(document).ready(function () {
             var formInput = document.getElementById("actor_birthday").value;
             if (!(validate_presence("#birthday", formInput))) {
                 document.getElementById("birthday-error").innerHTML = "Birthday must be filled out";
+                document.getElementById("actor_birthday").value = birthday_before_edit;
             } else {
                 if (!(validate_length("#birthday", formInput, 10))) {
-                    document.getElementById("actor_birthday").value = "";
+                    document.getElementById("actor_birthday").value = birthday_before_edit;
                     document.getElementById("birthday-error").innerHTML = "Birthday must be dd.mm.yyyy";
                 }
             }
@@ -62,4 +64,24 @@ $(document).ready(function () {
 });
 
 
-*/
+$(document).ready(function () {
+    if ($("#new-actor-form").length > 0) {
+
+        $("#submit").click(function() {
+                $.ajax({
+                    //data: {name: document.getElementById("actor_name").value},
+                    success: function () {
+                        window.alert("post suc")
+                    },
+                    error: function () {
+                        window.alert("post fail")
+                    },
+
+
+                })
+            }
+        );
+    };
+
+});
+

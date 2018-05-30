@@ -1,4 +1,4 @@
-function validate_presence(id, input) {
+/*function validate_presence(id, input) {
     if (input == "") {
         $(id).addClass("is-invalid");
         $(id).removeClass("is-valid");
@@ -22,6 +22,8 @@ function validate_length(id, input, num) {
     }
 };
 
+
+
 $(document).ready(function () {
     if ($("#new-movie-form").length > 0) {
 
@@ -29,9 +31,10 @@ $(document).ready(function () {
 
         $("#title").focusout(function () {
             var formInput = document.getElementById("movie_title").value;
-            if(!(validate_presence("#title", formInput))){
+            if (!(validate_presence("#title", formInput))) {
                 document.getElementById("title-error").innerHTML = "Title must be filled out";
-            };
+            }
+            ;
         });
 
 
@@ -58,7 +61,8 @@ $(document).ready(function () {
         });
 
     }
-});
+});*/
+
 
 //alternative ajax validation
 
@@ -136,3 +140,4 @@ $("#year").focusout(function () {
 });
 
 */
+
