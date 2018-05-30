@@ -28,7 +28,7 @@ RSpec.describe Actor, type: :model do
         )
     actor = Actor.new(
         name: "Sabrina",
-        birthday: "1998-04-10"
+        birthday: "1998-04-14"
         )
     actor.valid?
     expect(actor.errors[:name]).to include("has already been taken")

@@ -1,3 +1,5 @@
+#using capybara syntax
+
 Given("there are two actors in the list") do
   Actor.create!(name: "Max", birthday: "01.01.2018")
   Actor.create!(name: "Moritz", birthday: "01.01.2018")

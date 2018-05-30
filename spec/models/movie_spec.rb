@@ -68,10 +68,5 @@ RSpec.describe Movie, type: :model do
     expect(movie.title).to eq("Witches")
   end
 
-  it "is deleting movie object" do
-    movie = Movie.create!(title: " Witches ", year: "2018")
-    expect(movie.delete).to respond_with("Movie was deleted!")
-    #expect(flash[:success]).to eq("Movie was deleted!")
-  end
   
 end

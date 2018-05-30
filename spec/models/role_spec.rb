@@ -22,5 +22,4 @@ RSpec.describe Role, type: :model do
 
 end
 
-#Relations fehlen, dh in role muss er als actor: keinen string bekommen, sondern eine Relation zu Actor
 #no built in test associations like that. gem shoulda-matchers
