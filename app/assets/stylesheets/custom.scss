@@ -245,6 +245,7 @@ p3 {
 
 /* new */
 
+
 .select {
   margin-bottom: 5px;
 
@@ -257,7 +258,12 @@ p3 {
     border-color: green;
     background-color: darkseagreen;
   }
+
+  error-tag {
+    color: red;
+  }
 }
+
 
 .validatable {
 
@@ -272,19 +278,16 @@ p3 {
     border-color: green;
   }
 
-  error {
+  &.is-valid error_tag {
     display: none;
   }
-
 
   &.is-invalid input {
     border-color: red;
   }
 
-  &.is-invalid error {
-    display: unset;
+  error-tag {
     color: red;
   }
-
-
 }
+

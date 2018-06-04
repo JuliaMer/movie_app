@@ -20,16 +20,14 @@
       </div>
     <% end %>
 
-    <p id="name" class="validatable">
+    <p class="validatable presence">
       <%= form.label :name %><br>
       <%= form.text_field :name %>
-      <error id="name-error"></error>
     </p>
 
-    <p id="birthday" class="validatable">
+    <p class="validatable presence custom-function" data-function="validate_birthday">
       <%= form.label :birthday %><br>
       <%= form.text_field :birthday, :placeholder => 'dd.mm.yyyy' %>
-      <error id="birthday-error"></error>
     </p>
 
     <p>

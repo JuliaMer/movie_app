@@ -6,27 +6,24 @@
   <%= form_for(@movie, html: {id: "new-movie-form"}) do |form| %>
     <%= render 'shared/movie_error_messages' %>
 
-    <p id="title" class="validatable">
+    <p class="validatable presence">
       <%= form.label :title %><br/>
       <%= form.text_field :title %>
-      <error id="title-error"></error>
     </p>
 
-    <p id="year" class="validatable">
+    <p class="validatable presence year">
       <%= form.label :year %><br/>
       <%= form.text_field :year, :placeholder => 'yyyy' %>
-      <error id="year-error"></error>
     </p>
 
-    <p id="genre">
+    <p>
       <%= form.label :genre %><br/>
       <%= form.select(:genre, options_for_select([['Action'], ['Drama'], ['Thriller'], ['Comedy'], ['Crime'], ['Fantasy']], selected: @movie.genre), {:include_blank => true}) %>
     </p>
 
-    <p id="trailer" class="validatable">
+    <p class="validatable custom-function" data-function="validate_youtube_url">
       <%= form.label :trailer %><br/>
       <%= form.text_field :youtube_trailer_url%>
-      <error id="trailer-error"></error>
     </p>
 
     <p id="showtime">
@@ -44,8 +41,3 @@
   </a>
 
 </div>
-
-<!--
-<button>Try ajax</button>
-<p id="error-message"></p>
--->

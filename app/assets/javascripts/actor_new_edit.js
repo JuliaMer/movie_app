@@ -1,3 +1,4 @@
+/* not necessary anymore, now everything included in custom.js
 
 function validate_presence(id, input) {
     if (input == "") {
@@ -63,25 +64,4 @@ $(document).ready(function () {
     }
 });
 
-
-$(document).ready(function () {
-    if ($("#new-actor-form").length > 0) {
-
-        $("#submit").click(function() {
-                $.ajax({
-                    //data: {name: document.getElementById("actor_name").value},
-                    success: function () {
-                        window.alert("post suc")
-                    },
-                    error: function () {
-                        window.alert("post fail")
-                    },
-
-
-                })
-            }
-        );
-    };
-
-});
-
+*/

@@ -3,24 +3,24 @@
   <% provide(:title, 'Edit role') %>
   <h1>Edit role</h1>
 
-  <%= form_with(model: @role, local: true) do |form| %>
+  <%= form_with(model: @role, local: true, html: {id: "edit-role-form"}) do |form| %>
 
-    <p>
+    <p class="select">
       <%= form.label :actor_id %><br/>
       <%= form.select(:actor_id, Actor.all.collect {|r| [r.name, r.id]}, {:include_blank => true}) %>
     </p>
 
-    <p>
+    <p class="select">
       <%= form.label :movie_id %><br/>
       <%= form.select(:movie_id, Movie.all.collect {|r| [r.title, r.id]}, {:include_blank => true}) %>
     </p>
 
-    <p>
+    <p class="validatable presence">
       <%= form.label :character %><br/>
       <%= form.text_field :character %>
     </p>
 
-    <p>
+    <p id="submit">
       <%= form.submit 'update role', class: "btn btn-update"%>
     </p>
 
@@ -36,8 +36,8 @@
   </div>
     </section>
 
-  <div class="btn btn-back">
-    <%= link_to 'back', role_path %>
-  </div>
+  <a class="btn btn-back" href=<%= role_path %>>
+    back
+  </a>
 
 </div>

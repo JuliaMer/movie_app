@@ -1,3 +1,5 @@
+/* not necessary anymore, everything included in custom.js
+
 function validate_presence(id, input) {
     if (input == "") {
         $(id).addClass("is-invalid");
@@ -11,9 +13,9 @@ function validate_presence(id, input) {
 };
 
 $(document).ready(function () {
-    if ($("#new-role-form").length > 0) {
+    if ($("#new-role-form").length > 0 || $("#edit-role-form").length > 0) {
 
-        window.alert("Hello, you are about to create a new role. Actor, movie and character are required!");
+        var character_before_edit = document.getElementById("role_character").value;
 
         $("#actor").click(function () {
             var formInput = document.getElementById("role_actor_id").value;
@@ -32,6 +34,7 @@ $(document).ready(function () {
         $("#character").focusout(function () {
             var formInput = document.getElementById("role_character").value;
             if(!(validate_presence("#character", formInput))){
+                document.getElementById("role_character").value = character_before_edit;
                 document.getElementById("character-error").innerHTML = "Character must be filled out";
             };
         });
@@ -51,3 +54,5 @@ $(document).ready(function () {
 
     }
 });
+
+*/
