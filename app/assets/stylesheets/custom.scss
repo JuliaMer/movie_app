@@ -173,21 +173,15 @@ p3 {
   color: #32888b;
   font-size: 22px;
   font-weight: bold;
-}
-
-.trailer {
-  margin: 15px 0;
-  font-size: 20px;
-  a:link, a:visited {
-    color: #32888b;
-    font-weight: bold;
-  }
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .btn-besides-text:before,
 .btn-besides-text:after {
   content: "";
   display: table;
+  height: 11px;
 }
 
 .btn-besides-text:after {
@@ -290,4 +284,27 @@ p3 {
     color: red;
   }
 }
+
+/* tab */
+
+.tab-bar {
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+  color: #008b6a;
+  font-size: 20px;
+  margin-bottom: 20px;
+  background-color: #95b2ab;
+}
+
+.tablinks {
+  &.active {
+    color: darkgreen;
+  }}
+
+
+  .tablinks {
+    font-weight: bold;
+    padding-right: 10mm;
+  }
 

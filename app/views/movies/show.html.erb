@@ -2,7 +2,14 @@
 
   <h1><%= @movie.title %></h1>
 
-  <section class="movie-data">
+  <div class="tab-bar">
+    <a class="tablinks" data-theme="movie-data" data-default="default">Details</a>
+    <a class="tablinks" data-theme="cast-information">Cast</a>
+    <a class="tablinks" data-theme="showtime-information">Showtimes</a>
+    <a class="tablinks" data-theme="trailer">Trailer</a>
+  </div>
+
+  <section class="movie-data tabcontent">
     <h3>Details</h3>
 
     <p2>
@@ -14,7 +21,7 @@
     </p2>
   </section>
 
-  <section class="cast-information">
+  <section class="cast-information tabcontent">
 
     <section class="btn-besides-text">
       <p3>Cast</p3>
@@ -33,7 +40,7 @@
     </table>
   </section>
 
-  <section class="showtime-information">
+  <section class="showtime-information tabcontent">
     <h3>Showtimes</h3>
     <table class="all-db-entries">
 
@@ -51,7 +58,7 @@
     </p>
   </section>
 
-  <section class="trailer">
+  <section class="trailer tabcontent">
     <h3>Trailer</h3>
     <%= trailer(@movie) %>
   </section>
@@ -67,7 +74,7 @@
 
 </div>
 
-
+<!--
 <script>
     $(document).ready(function () {
         $(".btn-add").delay(4000).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
@@ -75,3 +82,4 @@
     });
 
 </script>
+-->

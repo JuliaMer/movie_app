@@ -2,7 +2,13 @@
 
   <h1><%= @actor.name %></h1>
 
-  <section class="personal-data">
+  <div class="tab-bar">
+    <a class="tablinks" data-theme="personal-data" data-default="default">Personal Data</a>
+    <a class="tablinks" data-theme="filmography-data">Filmography</a>
+    <a class="tablinks" data-theme="statistic">Statistics</a>
+  </div>
+
+  <section class="personal-data tabcontent">
     <h3>Personal data</h3>
 
     <p2>
@@ -15,7 +21,7 @@
   </section>
 
 
-  <section class="filmography-data">
+  <section class="filmography-data tabcontent">
 
     <section class="btn-besides-text">
       <p3>Filmography</p3>
@@ -34,50 +40,41 @@
       <%= render partial: 'layouts/list_roles_movies', locals: {:roles => @roles} %>
     </table>
 
-    <section class="statistic">
-      <h3>Statistics</h3>
+  </section>
 
-      <table class="all-db-entries">
+  <section class="statistic tabcontent">
+    <h3>Statistics</h3>
+
+    <table class="all-db-entries">
+      <tr>
+        <th>Year</th>
+        <th>Number of movies acted in</th>
+      </tr>
+      <% @actor.employed.each do |year, times| %>
         <tr>
-          <th>Year</th>
-          <th>Number of movies acted in</th>
-        </tr>
-        <% @actor.employed.each do |year, times| %>
-          <tr>
-            <td>
-              <%= year %>
-            </td>
-            <td>
-              <%= times %>
-            </td>
-        <% end %>
-        <td>
-          total
-        </td>
-        <td>
-          <%= @actor.total %>
-        </td>
-        </tr>
-      </table>
-    </section>
-
+          <td>
+            <%= year %>
+          </td>
+          <td>
+            <%= times %>
+          </td>
+      <% end %>
+      <td>
+        total
+      </td>
+      <td>
+        <%= @actor.total %>
+      </td>
+      </tr>
+    </table>
   </section>
 
   <a class="btn btn-edit" href=<%= edit_actor_path(@actor.id) %>>
     edit
   </a>
 
-  <a class="btn btn-back" href=<%= actors_path  %>>
+  <a class="btn btn-back" href=<%= actors_path %>>
     back
   </a>
 
 </div>
-
-
-<script>
-    $(document).ready(function () {
-        $(".btn-add").delay(4000).fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300);
-        $(".statistic").hide(300).slideDown(3000);
-    });
-
-</script>

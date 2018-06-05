@@ -59,6 +59,35 @@ function mark_as_invalid(validatable_obj) {
     validatable_obj.classList.add("is-invalid");
 }
 
+//tabs
+function mark_as_active(tab_class){
+    document.querySelector("[data-theme =" + tab_class + "]").classList.add("active");
+}
+
+function mark_as_inactive(){
+    document.querySelectorAll(".tablinks").forEach(function(tablink){
+        tablink.classList.remove("active");
+    })
+}
+
+function hide_all_tabcontent(){
+    document.querySelectorAll(".tabcontent").forEach(function(content){
+        content.style.display = "none";
+    });
+    mark_as_inactive();
+}
+
+function show_one_tabcontent(tab_class){
+    document.querySelector("." + tab_class).style.display = "block";
+    mark_as_active(tab_class);
+}
+
+function openTab(tab_class) {
+    hide_all_tabcontent();
+    show_one_tabcontent(tab_class);
+}
+
+
 
 $(document).ready(function () {
 
@@ -134,7 +163,7 @@ $(document).ready(function () {
             var lab = validatable.querySelector("label").innerHTML;
 
             if (validatable.className.includes("select")) {
-                if(validate_presence(new_sel_val)) {
+                if (validate_presence(new_sel_val)) {
                     error_tag.innerHTML = "";
                     mark_as_valid(validatable);
                     return true;
@@ -147,6 +176,18 @@ $(document).ready(function () {
             };
         });
 
+    });
+
+    //js for tabs
+    hide_all_tabcontent();
+    show_one_tabcontent(document.querySelector("[data-default=default]").dataset.theme);
+
+
+    document.querySelectorAll(".tablinks").forEach(function (tablink) {
+
+        tablink.addEventListener("click", function () {
+            openTab(tablink.dataset.theme);
+        });
     });
 
 });
@@ -166,3 +207,7 @@ $(document).ready(function () {
 //document.getElementById("title").value
 //document.getElementsByClassName("validatable")[0].value
 //the Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+
+
+
+
