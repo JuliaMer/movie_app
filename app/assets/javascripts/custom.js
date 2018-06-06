@@ -124,7 +124,6 @@ $(document).ready(function () {
 
 
             if (validatable.className.includes("custom-function")) {
-                var fcn_string = validatable.dataset.function + "(" + val + ")";
                 if (validatable.dataset.function == "validate_youtube_url") {
                     if (validate_youtube_url(val)) {
                         error_tag.innerHTML = "";

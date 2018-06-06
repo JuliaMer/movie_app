@@ -24,4 +24,5 @@ class SessionsController < ApplicationController
     log_out
     redirect_to '/home'
   end
+
 end
