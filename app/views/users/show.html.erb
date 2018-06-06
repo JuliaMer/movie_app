@@ -1,0 +1,32 @@
+<div class="show">
+
+  <h1><%= @user.screen_name %></h1>
+
+  <div class="tab-bar">
+    <a class="tablinks" data-theme="personal-data" data-default="default">Personal Data</a>
+    <a class="tablinks" data-theme="activities">Created Movies</a>
+  </div>
+
+  <section class="personal-data tabcontent">
+    <h3>Personal data</h3>
+
+    <p2>
+      email: <%= @user.email %>
+    </p2>
+
+  </section>
+
+  <section class="activities tabcontent">
+    no movies created
+  </section>
+
+
+  <a class="btn btn-edit" href=<%= edit_user_path(@user.id) %>>
+    edit profile
+  </a>
+
+  <a class="btn btn-back" href=<%= users_path %>>
+    back
+  </a>
+
+</div>

@@ -1,5 +1,7 @@
 class ActorsController < ApplicationController
 
+  before_action :login_confirmation
+
   def show
     @actor = Actor.find(params[:id])
     @roles = @actor.roles
@@ -19,18 +21,6 @@ class ActorsController < ApplicationController
       render 'new'
     end
 
-=begin
-    respond_to do |format|
-      if @actor.save
-        format.html { redirect_to @actor, notice: 'Actor was successfully created.' }
-        format.js
-        format.json { render json: @actor, status: :created, location: @actor }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @actor.errors, status: :unprocessable_entity }
-      end
-    end
-=end
   end
 
   def destroy

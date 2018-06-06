@@ -1,4 +1,7 @@
 class RolesController < ApplicationController
+
+  before_action :login_confirmation
+
   def new
     @role = Role.new
     @actors = Actor.all

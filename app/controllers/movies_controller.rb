@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  before_action :login_confirmation
+
   def show
     @movie = Movie.find(params[:id])
     @roles = @movie.roles # macht intern: Role.where(:movie_id => @movie.id)

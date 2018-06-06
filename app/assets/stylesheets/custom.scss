@@ -64,7 +64,7 @@ header {
   background-size: 35mm 35mm;
   .app-title {
     position: absolute;
-    right: 34cm;
+    left: 10cm;
     top: 20px;
     font: italic bold 40px Sans-Serif;
     color: cadetblue;
@@ -76,7 +76,7 @@ div {
   font-size: 18px;
 }
 
-.edition, .index, .creation, .show, .search-results, .welcome {
+.edition, .index, .creation, .show, .search-results, .welcome, .login, .registration{
   margin-left: 15px;
   h1 {
     color: #008b6a;
@@ -93,7 +93,7 @@ div {
   }
   p2 {
     display: inline-block;
-    width: 40%;
+    width: 100%;
     margin-bottom: 20px;
     float: left;
     a:hover {

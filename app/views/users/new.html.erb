@@ -1,0 +1,47 @@
+<div class="registration">
+
+  <% provide(:title, 'Sign Up') %>
+  <h1>Sign Up</h1>
+
+  <%= form_for(@user, html: {id: "new-user-form"}) do |form| %>
+
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@user.errors.count, "error") %>.
+        </div>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <p class="validatable presence">
+      <%= form.label "Username" %><br>
+      <%= form.text_field :screen_name%>
+    </p>
+
+    <p class="validatable presence">
+      <%= form.label :email %><br>
+      <%= form.text_field :email, :placeholder => 'example@example.com'%>
+    </p>
+
+    <p class="validatable presence">
+      <%= form.label :password %><br>
+      <%= form.password_field(:password)%>
+    </p>
+
+    <p id="submit">
+      <%= form.submit "create account", class:"btn btn-create"%>
+    </p>
+
+  <% end %>
+
+  <a class="btn btn-back" href=<%= home_path %>>
+    back
+  </a>
+
+</div>

@@ -2,7 +2,18 @@
 
 <div class="welcome">
   <h1>Welcome to the Movie App</h1>
-  <p> Here you can see a list of movies and their actors.</p>
+
+  <% if !(logged_in?) %>
+    <section>
+      <p> To access the database please log in: </p>
+      <a class="btn btn-add" href=<%= login_path %>>Login</a>
+
+      <p> You don't have an account yet? </p>
+      <a class="btn btn-add" href=<%= users_new_path %>>
+        Sign Up
+      </a>
+    </section>
+  <% end %>
 
 </div>
 

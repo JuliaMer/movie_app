@@ -1,0 +1,39 @@
+<div class="edition">
+
+  <% provide(:title, 'Edit user') %>
+
+  <h1>Edit user</h1>
+
+  <%= form_with(model: @user, local: true, html: {id: "edit-user-form"}) do |form| %>
+
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@user.errors.count, "error") %>.
+        </div>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <p class="validatable presence">
+      <%= form.label :email %><br>
+      <%= form.text_field :email, :placeholder => 'example@example.com'%>
+    </p>
+
+    <p class="validatable presence">
+      <%= form.label :password %><br>
+      <%= form.password_field(:password)%>
+    </p>
+
+    <p>
+      <%= form.submit 'update profile', class: "btn btn-update"%>
+    </p>
+
+  <% end %>
+
+</div>

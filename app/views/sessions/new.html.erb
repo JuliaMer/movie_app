@@ -1,0 +1,28 @@
+<div class="login">
+
+  <h1>Login</h1>
+
+  <%= form_for(:session, url: login_path, html: {id: "login-user-form"}) do |form| %>
+
+    <p class="validatable presence">
+      <%= form.label "Username" %><br>
+      <%= form.text_field :screen_name%>
+    </p>
+
+    <p class="validatable presence">
+      <%= form.label :password %><br>
+      <%= form.password_field(:password)%>
+    </p>
+
+    <p id="submit">
+      <%= form.submit "Log In", class:"btn btn-create"%>
+    </p>
+
+    <p> You don't have an account yet? </p>
+    <a class="btn btn-add" href=<%= users_new_path %>>
+      Sign Up
+    </a>
+
+  <% end %>
+
+</div>
