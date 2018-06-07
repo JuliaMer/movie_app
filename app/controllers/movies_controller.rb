@@ -9,12 +9,13 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @movie = Movie.new(:user_id => current_user)
     5.times {@movie.showtimes.new}
   end
 
   def create
     @movie = Movie.new(movie_params)
+    @movie.user = current_user
     if @movie.save
       flash[:success] = "You added a new movie to the database!"
       redirect_to movie_path(@movie)
@@ -38,6 +39,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
+    @movie.user = current_user
     if @movie.update(movie_params)
       flash[:success] = "You updated the movie!"
       redirect_to movie_path(@movie)
@@ -66,7 +68,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :genre, :youtube_trailer_url, showtimes_attributes: [:id, :cinema, :date, :time, :_destroy])
+    params.require(:movie).permit(:title, :year, :genre, :youtube_trailer_url, :user_id, showtimes_attributes: [:id, :cinema, :date, :time, :_destroy])
   end
 end
 

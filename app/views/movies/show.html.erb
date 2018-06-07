@@ -19,6 +19,11 @@
     <p2>
       genre: <%= search_for_genre(@movie) %>
     </p2>
+
+    <p2>
+      author: <%= User.find(@movie.user.id).screen_name %>
+    </p2>
+
   </section>
 
   <section class="cast-information tabcontent">

@@ -17,7 +17,9 @@
   </section>
 
   <section class="activities tabcontent">
-    no movies created
+    <% @user.authored_movies.each do |movie|%>
+   <ul> <%= movie %> </ul>
+    <%end%>
   </section>
 
 

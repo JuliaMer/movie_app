@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  belongs_to :user
   has_many :roles
   has_many :actors, :through => :roles
   has_many :showtimes, dependent: :destroy
